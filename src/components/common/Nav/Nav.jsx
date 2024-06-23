@@ -6,6 +6,11 @@ const Nav = () => {
 return (
     <nav className="nav">
         <div className="center">
+        <NavLink
+        to="home"
+        >
+        Home
+        </NavLink>
             <NavLink
         to="googlesheets"
         >
