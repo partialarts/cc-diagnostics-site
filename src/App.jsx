@@ -5,11 +5,13 @@ import './App.css'
 import Home from './components/Home';
 import GoogleSheets from './components/GoogleSheets';
 import AirTable from './components/AirTable';
+import Footer from './components/common/Nav/Footer'
 
 function App() {
-return (
-<Router>
+  return (
+    <Router>
       <Nav />
+      <Footer />
       {/* Wrap Route elements in a Routes component */}
       <Routes>
         {/* Define routes using the Route component to render different page components at different paths */}
@@ -20,7 +22,7 @@ return (
         <Route path="airtable" element={<AirTable />} />
       </Routes>
     </Router>
-);
+  );
 };
 
 export default App;
