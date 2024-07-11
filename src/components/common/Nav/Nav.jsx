@@ -11,7 +11,7 @@ const Header = () => {
 
     return (
         <header className="sticky absolute inset-x-0 top-0 z-50">
-            <nav className="flex items-center align-middle justify-between p-6 lg:px-8 bg-white bg-opacity-70 backdrop-blur-lg" aria-label="Global">
+            <nav className="flex items-center align-middle justify-between p-6 lg:px-8 bg-white backdrop-blur-lg" aria-label="Global">
                 <div className="flex lg:flex-1">
                     <a href="#" className="-m-1.5 p-1.5">
                         <span className="sr-only">CC Diagnostics</span>
@@ -45,7 +45,7 @@ const Header = () => {
                             <div className="flex items-center justify-between">
                                 <a href="#" className="-m-1.5 p-1.5">
                                     <span className="sr-only">CC Diagnostics</span>
-                                    <img className="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="Logo" />
+                                    <img className="h-8 w-auto" src={logo} alt="Logo" />
                                 </a>
                                 <button
                                     type="button"
