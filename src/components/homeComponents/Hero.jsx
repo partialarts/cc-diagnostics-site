@@ -4,13 +4,14 @@ import DNA from '../homeComponents/DNA.jpeg'
 export default function Hero() {
 
   return (
-    <div className="bg-indigo-600">
+    <div className="bg-black-900">
       <div className="relative isolate overflow-hidden pt-14">
         <img
           alt="DNA strand"
           src={DNA}
           className="absolute inset-0 -z-10 h-full w-full object-cover"
         />
+        <div className="absolute inset-0 -z-10 bg-black opacity-40"></div> {/* Overlay */}
         <div className="m-20 max-w-2xl py-32 sm:py-48 lg:py-56">
           <div className="text-left">
             <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
