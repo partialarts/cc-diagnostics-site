@@ -2,17 +2,17 @@ import React from "react"
 import logo from "/logo.png"
 
 const navigation = {
-    solutions: [
-        { name: 'Marketing', href: '#' },
-        { name: 'Analytics', href: '#' },
-        { name: 'Commerce', href: '#' },
-        { name: 'Insights', href: '#' },
+    siteMap: [
+        { name: 'Technology', href: '#' },
+        { name: 'About', href: '#' },
+        { name: 'News', href: '#' },
+        { name: 'Contact Us', href: '#' },
     ],
-    support: [
-        { name: 'Pricing', href: '#' },
-        { name: 'Documentation', href: '#' },
-        { name: 'Guides', href: '#' },
-        { name: 'API Status', href: '#' },
+    reachOut: [
+        { name: '+42 9876 4678', href: '#' },
+        { name: 'info@infomedical.com', href: '#' },
+        { name: 'blank', href: '#' },
+        { name: 'blank', href: '#' },
     ],
     company: [
         { name: 'About', href: '#' },
@@ -120,9 +120,9 @@ export default function Footer() {
                     <div className="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
                         <div className="md:grid md:grid-cols-2 md:gap-8">
                             <div>
-                                <h3 className="text-sm font-semibold leading-6 text-gray-900">Solutions</h3>
+                                <h3 className="text-sm font-semibold leading-6 text-gray-900">Site Map</h3>
                                 <ul role="list" className="mt-6 space-y-4">
-                                    {navigation.solutions.map((item) => (
+                                    {navigation.siteMap.map((item) => (
                                         <li key={item.name}>
                                             <a href={item.href} className="text-sm leading-6 text-gray-600 hover:text-gray-900">
                                                 {item.name}
@@ -132,9 +132,9 @@ export default function Footer() {
                                 </ul>
                             </div>
                             <div className="mt-10 md:mt-0">
-                                <h3 className="text-sm font-semibold leading-6 text-gray-900">Support</h3>
+                                <h3 className="text-sm font-semibold leading-6 text-gray-900">Reach Out</h3>
                                 <ul role="list" className="mt-6 space-y-4">
-                                    {navigation.support.map((item) => (
+                                    {navigation.reachOut.map((item) => (
                                         <li key={item.name}>
                                             <a href={item.href} className="text-sm leading-6 text-gray-600 hover:text-gray-900">
                                                 {item.name}
