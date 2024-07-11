@@ -11,16 +11,16 @@ function App() {
   return (
     <Router>
       <Nav />
-      <Footer />
       {/* Wrap Route elements in a Routes component */}
       <Routes>
         {/* Define routes using the Route component to render different page components at different paths */}
         {/* Define a default route that will render the Home component */}
         <Route path="/" element={<Home />} />
         <Route path="home" element={<Home />} />
-        <Route path="googlesheets" element={<GoogleSheets />} />
-        <Route path="airtable" element={<AirTable />} />
+        {/* <Route path="technology" element={<Technology />} />
+        <Route path="about" element={<About />} /> */}
       </Routes>
+      <Footer />
     </Router>
   );
 };
