@@ -5,7 +5,7 @@ import './App.css'
 import Home from './components/Home';
 import GoogleSheets from './components/GoogleSheets';
 import AirTable from './components/AirTable';
-import Footer from './components/common/Nav/Footer'
+import Footer from './components/common/Footer/Footer'
 
 function App() {
   return (
