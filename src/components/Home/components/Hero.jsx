@@ -1,5 +1,5 @@
 'use client'
-import DNA from './DNA.jpeg'
+import DNA from '../assets/DNA.jpeg'
 
 export default function Hero() {
 
