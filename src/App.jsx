@@ -6,6 +6,9 @@ import Home from './components/Home/Home';
 import GoogleSheets from './components/GoogleSheets';
 import AirTable from './components/AirTable';
 import Footer from './components/common/Footer/Footer'
+import Technology from './components/Technology/Technology';
+import About from './components/About/About';
+import News from './components/News/News';
 
 function App() {
   return (
@@ -17,8 +20,9 @@ function App() {
         {/* Define a default route that will render the Home component */}
         <Route path="/" element={<Home />} />
         <Route path="home" element={<Home />} />
-        {/* <Route path="technology" element={<Technology />} />
-        <Route path="about" element={<About />} /> */}
+        <Route path="technology" element={<Technology />} />
+        <Route path="about" element={<About />} />
+        <Route path="news" element={<News />} />
       </Routes>
       <Footer />
     </Router>
