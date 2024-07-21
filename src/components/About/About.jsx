@@ -1,14 +1,17 @@
 import React from 'react';
-import TeamCards from './components/TeamCards';
-import TeamHero from './components/Hero';
+
+import Hero from './components/Hero';
+import Team from './components/Team';
+import Partners from './components/Partners';
 
 function About() {
     return (
-        <>
-            <TeamHero />
-            <TeamCards />
-        </>
-    );
+    <>
+        <Hero/>
+        <Team/>
+        <Partners/>
+    </>
+    )
 }
 
 export default About;
