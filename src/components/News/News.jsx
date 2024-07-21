@@ -1,9 +1,12 @@
 import React from 'react';
+import Articles from './components/Articles';
+import Hero from './components/Hero';
 
 function News() {
   return (
     <>
-      <h1>News test page</h1>
+    <Hero/>
+      <Articles/>
     </>
   );
 }
