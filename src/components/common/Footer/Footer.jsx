@@ -11,14 +11,14 @@ const navigation = {
   reachOut: [
     { name: "+42 9876 4678", href: "#" },
     { name: "info@infomedical.com", href: "#" },
-    { name: "blank", href: "#" },
-    { name: "blank", href: "#" },
+    { name: "blank1", href: "#" },
+    { name: "blank2", href: "#" },
   ],
   partners: [
-    { name: "PartnerHere", href: "#" },
-    { name: "PartnerHere", href: "#" },
-    { name: "PartnerHere", href: "#" },
-    { name: "PartnerHere", href: "#" },
+    { name: "Partner1", href: "#" },
+    { name: "Partner2", href: "#" },
+    { name: "Partner3", href: "#" },
+    { name: "Partner4", href: "#" },
   ],
   
   social: [
