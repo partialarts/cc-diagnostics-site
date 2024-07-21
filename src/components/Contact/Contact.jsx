@@ -1,20 +1,20 @@
-
+import teamPhoto from '../../../public/teamPhoto.jpg'
 export default function Contact() {
     return (
       <div className="relative bg-white">
         <div className="lg:absolute lg:inset-0 lg:left-1/2">
           <img
-            alt=""
-            src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=focalpoint&fp-x=.4&w=2560&h=3413&&q=80"
-            className="h-64 w-full bg-gray-50 object-cover sm:h-80 lg:absolute lg:h-full"
+            alt="team photo"
+            src={teamPhoto}
+            className="h-64 w-full bg-gray-50 object-contain sm:h-80 lg:absolute lg:h-full"
           />
         </div>
         <div className="pb-24 pt-16 sm:pb-32 sm:pt-24 lg:mx-auto lg:grid lg:max-w-7xl lg:grid-cols-2 lg:pt-32">
           <div className="px-6 lg:px-8">
             <div className="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
-              <h2 className="text-3xl font-bold tracking-tight text-gray-900">Let's work together</h2>
+              <h2 className="text-3xl font-bold tracking-tight text-gray-900">Get in Touch</h2>
               <p className="mt-2 text-lg leading-8 text-gray-600">
-                Proin volutpat consequat porttitor cras nullam gravida at orci molestie a eu arcu sed ut tincidunt magna.
+              Have a question or need assistance? Fill out the form below.
               </p>
               <form action="#" method="POST" className="mt-16">
                 <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
@@ -114,51 +114,6 @@ export default function Contact() {
                       />
                     </div>
                   </div>
-                  <fieldset className="sm:col-span-2">
-                    <legend className="block text-sm font-semibold leading-6 text-gray-900">Expected budget</legend>
-                    <div className="mt-4 space-y-4 text-sm leading-6 text-gray-600">
-                      <div className="flex gap-x-2.5">
-                        <input
-                          defaultValue="under_25k"
-                          id="budget-under-25k"
-                          name="budget"
-                          type="radio"
-                          className="mt-1 h-4 w-4 border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-600"
-                        />
-                        <label htmlFor="budget-under-25k">Less than $25K</label>
-                      </div>
-                      <div className="flex gap-x-2.5">
-                        <input
-                          defaultValue="25k-50k"
-                          id="budget-25k-50k"
-                          name="budget"
-                          type="radio"
-                          className="mt-1 h-4 w-4 border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-600"
-                        />
-                        <label htmlFor="budget-25k-50k">$25K – $50K</label>
-                      </div>
-                      <div className="flex gap-x-2.5">
-                        <input
-                          defaultValue="50k-100k"
-                          id="budget-50k-100k"
-                          name="budget"
-                          type="radio"
-                          className="mt-1 h-4 w-4 border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-600"
-                        />
-                        <label htmlFor="budget-50k-100k">$50K – $100K</label>
-                      </div>
-                      <div className="flex gap-x-2.5">
-                        <input
-                          defaultValue="over_100k"
-                          id="budget-over-100k"
-                          name="budget"
-                          type="radio"
-                          className="mt-1 h-4 w-4 border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-600"
-                        />
-                        <label htmlFor="budget-over-100k">$100K+</label>
-                      </div>
-                    </div>
-                  </fieldset>
                 </div>
                 <div className="mt-10 flex justify-end border-t border-gray-900/10 pt-8">
                   <button
