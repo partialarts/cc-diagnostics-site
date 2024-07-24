@@ -1,4 +1,4 @@
-import teamPhoto from '../../../public/teamPhoto.jpg'
+import teamPhoto from '../../assets/images/teamPhoto.jpg'
 export default function Contact() {
     return (
       <div className="relative bg-white">
