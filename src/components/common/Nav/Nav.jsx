@@ -23,7 +23,7 @@ const Header = () => {
                 <NavLink to="/technology" className="text-sm font-semibold leading-6 text-gray-900">Technology</NavLink>
                     <NavLink to="/about" className="text-sm font-semibold leading-6 text-gray-900">About</NavLink>
                     <NavLink to="/news" className="text-sm font-semibold leading-6 text-gray-900">News</NavLink>
-                    <NavLink to="/contact" className="text-sm font-semibold leading-6 text-gray-900 bg-sky-500">Contact us</NavLink>
+                    <NavLink to="/contact"><button className="text-sm font-semibold leading-6 text-gray-900 bg-sky-500">Contact us</button></NavLink>
                 </div>
                 <div className="flex lg:hidden">
                     <button
@@ -66,7 +66,7 @@ const Header = () => {
                                     <NavLink to="/technology" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Technology</NavLink>
                                         <NavLink to="/about" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">About</NavLink>
                                         <NavLink to="/news" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">News</NavLink>
-                                        <NavLink to="/contact" className="mx-auto block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 bg-sky-500">Contact us</NavLink>
+                                        <NavLink to="/contact"><button className="mx-auto block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 bg-sky-500">Contact us</button></NavLink>
                                     </div>
                                 </div>
                             </div>
