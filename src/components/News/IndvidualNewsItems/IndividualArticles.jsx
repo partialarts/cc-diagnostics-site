@@ -49,12 +49,8 @@ export default function IndividualArticles() {
         <ArrowUturnLeftIcon aria-hidden="true" className="h-5 w-5" />
       </button>
       <div className="mx-auto max-w-3xl text-base leading-7 text-gray-700">
-        <p className="text-base font-semibold leading-7 text-indigo-600">Introducing</p>
+        {/* <p className="text-base font-semibold leading-7 text-indigo-600">Introducing</p> */}
         <h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{post.title}</h1>
-        <p className="mt-6 text-xl leading-8">{post.description}</p>
-        <div className="mt-10 max-w-2xl">
-          {/* Add content here if needed */}
-        </div>
         <figure className="mt-16">
           <img
             alt=""
@@ -66,6 +62,10 @@ export default function IndividualArticles() {
             Faucibus commodo massa rhoncus, volutpat.
           </figcaption>
         </figure>
+        <p className="mt-6 text-xl leading-8">{post.description}</p>
+        <div className="mt-10 max-w-2xl">
+          {/* Add content here if needed */}
+        </div>
       </div>
     </div>
   );
