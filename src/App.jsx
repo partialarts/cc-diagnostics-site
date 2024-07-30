@@ -3,8 +3,6 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Nav from './components/common/Nav/Nav';
 import './App.css';
 import Home from './components/Home/Home';
-import GoogleSheets from './components/GoogleSheets';
-import AirTable from './components/AirTable';
 import Footer from './components/common/Footer/Footer';
 import Technology from './components/Technology/Technology';
 import About from './components/About/About';
