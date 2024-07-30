@@ -127,15 +127,16 @@ import Airtable from "../../common/Airtable/Airtable";
 export default function LatestNews() {
 
   const renderNewsItem = (post) => ( 
+    <div className="lg:w-full"> 
     <article key={post.id} className="flex flex-col items-start justify-between">
       <div className="relative w-full">
         <img
           alt=""
-          src={post.fields.imageUrl}
+          src={post.fields.Photo[0].url}
           className="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
         />
         <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
-      </div>
+      </div>-
       <div className="max-w-xl">
         <div className="group   
  relative">
@@ -143,13 +144,14 @@ export default function LatestNews() {
             <a href={post.fields.href}>   
 
               <span className="absolute inset-0" />
-              {post.fields.title}
+              {post.fields.Title}
             </a>
           </h3>
-          <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">{post.fields.description}</p>
+          <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">{post.fields.Description}</p>
         </div>
       </div>
     </article>
+    </div>
   );
     
   return (

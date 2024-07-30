@@ -13,6 +13,7 @@ function Airtable({ tableName, view, renderItem }) {
         (records, fetchNextPage) => {
           const formattedRecords = records.map((record) => record._rawJson); 
           setRecords(formattedRecords);
+          console.log("Fetched Airtable records:", formattedRecords);
           fetchNextPage();
         },
         (error) => {
@@ -28,7 +29,7 @@ function Airtable({ tableName, view, renderItem }) {
   if (isLoading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
-  return <div>{records.map(renderItem)}</div>;
+  return <>{records.map(renderItem)}</>;
 }
 
 export default Airtable;
