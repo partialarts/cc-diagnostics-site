@@ -140,7 +140,7 @@ export default function LatestNews() {
       <div className="max-w-xl">
         <div className="group   
  relative">
-          <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+          <h3 className="mt-1 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
             <a href={post.fields.href}>   
 
               <span className="absolute inset-0" />
