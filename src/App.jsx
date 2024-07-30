@@ -4,7 +4,7 @@ import Nav from './components/common/Nav/Nav';
 import './App.css';
 import Home from './components/Home/Home';
 import GoogleSheets from './components/GoogleSheets';
-import AirTable from './components/AirTable';
+import AirTable from './components/AirTableTest';
 import Footer from './components/common/Footer/Footer';
 import Technology from './components/Technology/Technology';
 import About from './components/About/About';

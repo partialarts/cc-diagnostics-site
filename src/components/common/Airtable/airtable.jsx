@@ -1,39 +1,34 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from "react";
+import airtableBase from "../../../utils/airtableapi";
 
-function AirtableComponent({ baseName, viewName, formatRecords }) {
+function Airtable({ tableName, view, renderItem }) {
   const [records, setRecords] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    airtableBase(baseName) // Use the baseName prop
-      .select({ view: viewName }) // Use the viewName prop
+    airtableBase(tableName)
+      .select({ view })
       .eachPage(
         (records, fetchNextPage) => {
-            const formattedRecords = formatRecords(records);
-            setRecords(formattedRecords);
-            fetchNextPage();
+          const formattedRecords = records.map((record) => record._rawJson); 
+          setRecords(formattedRecords);
+          fetchNextPage();
         },
         (error) => {
-            if (error) {
-              setError(error);
-              console.error(error);
-            }
-            setIsLoading(false);
+          if (error) {
+            setError(error);
+            console.error(error);
           }
-        );
-  }, [baseName, viewName, formatRecords]);
+          setIsLoading(false);
+        }
+      );
+  }, [tableName, view]);
 
   if (isLoading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
-  return (
-    <div>
-      {records.map((record) => (
-        <div key={record.id}>{/* Render formatted record data here */}</div>
-      ))}
-    </div>
-  );
+  return <div>{records.map(renderItem)}</div>;
 }
 
-export default AirtableComponent;
+export default Airtable;
