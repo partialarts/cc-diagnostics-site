@@ -1,33 +1,175 @@
-import Methica_CC_prototype_2 from "../../../../src/assets/images/Methica_CC_prototype_2.jpg";
-// import { InformationCircleIcon } from "@heroicons/react/outline";
+// const posts = [
+//     {
+//       id: 1,
+//       title: 'Boost your conversion rate',
+//       href: '#',
+//       description:
+//         'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.',
+//       imageUrl:
+//         'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80',
+//       date: 'Mar 16, 2020',
+//       datetime: '2020-03-16',
+//       category: { title: 'Marketing', href: '#' },
+//       author: {
+//         name: 'Michael Foster',
+//         role: 'Co-Founder / CTO',
+//         href: '#',
+//         imageUrl:
+//           'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+//       },
+//     },
+//     {
+//         id: 2,
+//         title: 'Boost your conversion rate',
+//         href: '#',
+//         description:
+//           'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.',
+//         imageUrl:
+//           'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80',
+//         date: 'Mar 16, 2020',
+//         datetime: '2020-03-16',
+//         category: { title: 'Marketing', href: '#' },
+//         author: {
+//           name: 'Michael Foster',
+//           role: 'Co-Founder / CTO',
+//           href: '#',
+//           imageUrl:
+//             'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+//         },
+//       },
+//       {
+//         id: 3,
+//         title: 'Boost your conversion rate',
+//         href: '#',
+//         description:
+//           'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.',
+//         imageUrl:
+//           'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80',
+//         date: 'Mar 16, 2020',
+//         datetime: '2020-03-16',
+//         category: { title: 'Marketing', href: '#' },
+//         author: {
+//           name: 'Michael Foster',
+//           role: 'Co-Founder / CTO',
+//           href: '#',
+//           imageUrl:
+//             'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+//         },
+//       },
+//   ]
+
+//   export default function LatestNews() {
+//     return (
+//       <div className="bg-white py-12 sm:py-16">
+//         <div className="mx-auto max-w-7xl px-6 lg:px-8">
+//           <div className="mx-auto max-w-2xl text-center">
+//             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Latest News</h2>
+//             {/* <p className="mt-2 text-lg leading-8 text-gray-600">
+//               Learn how to grow your business with our expert advice.
+//             </p> */}
+//           </div>
+//           <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+//             {posts.map((post) => (
+//               <article key={post.id} className="flex flex-col items-start justify-between">
+//                 <div className="relative w-full">
+//                   <img
+//                     alt=""
+//                     src={post.imageUrl}
+//                     className="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
+//                   />
+//                   <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
+//                 </div>
+//                 <div className="max-w-xl">
+//                   {/* <div className="mt-8 flex items-center gap-x-4 text-xs">
+//                     <time dateTime={post.datetime} className="text-gray-500">
+//                       {post.date}
+//                     </time>
+//                     <a
+//                       href={post.category.href}
+//                       className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
+//                     >
+//                       {post.category.title}
+//                     </a>
+//                   </div> */}
+//                   <div className="group relative">
+//                     <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+//                       <a href={post.href}>
+//                         <span className="absolute inset-0" />
+//                         {post.title}
+//                       </a>
+//                     </h3>
+//                     <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">{post.description}</p>
+//                   </div>
+//                   {/* <div className="relative mt-8 flex items-center gap-x-4">
+//                     <img alt="" src={post.author.imageUrl} className="h-10 w-10 rounded-full bg-gray-100" />
+//                     <div className="text-sm leading-6">
+//                       <p className="font-semibold text-gray-900">
+//                         <a href={post.author.href}>
+//                           <span className="absolute inset-0" />
+//                           {post.author.name}
+//                         </a>
+//                       </p>
+//                       <p className="text-gray-600">{post.author.role}</p>
+//                     </div>
+//                   </div> */}
+//                 </div>
+//               </article>
+//             ))}
+//           </div>
+//         </div>
+//       </div>
+//     )
+//   }
+
+import React from "react";
+import Airtable from "../../common/Airtable/Airtable";
 
 export default function FeaturedNews() {
 
-    const post = {
-        description: "This is a sample description for the featured news."
-    };
+  const renderNewsItem = (post) => ( 
+    <div className="lg:w-full"> 
+    <article key={post.id} className="flex flex-col items-start justify-between">
+      <div className="relative w-full">
+        <img
+          alt=""
+          src={post.fields.Photo[0].url}
+          className="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
+        />
+        <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
+      </div>-
+      <div className="max-w-xl">
+        <div className="group   
+ relative">
+          <h3 className="mt-1 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+            <a href={post.fields.href}>   
 
-    return (
-        <div className="relative bg-sky-500 px-6 py-32 lg:px-8">
-            <div className="text-left mx-auto max-w-3xl text-base leading-7 text-gray-700">
-                {/* <p className="text-base font-semibold leading-7 text-ccDarkBlue">Introducing</p> */}
-                <h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Discover the Latest Advancements in Cervical Cancer Detection</h1>
-                <figure className="mt-16">
-                    <img
-                        alt="Description of the image"
-                        src={Methica_CC_prototype_2}
-                        className="aspect-video rounded-xl bg-gray-50 object-cover"
-                    />
-                    <figcaption className="mt-4 flex gap-x-2 text-sm leading-6 text-gray-500">
-                        {/* <InformationCircleIcon aria-hidden="true" className="mt-0.5 h-5 w-5 flex-none text-gray-300" /> */}
-                        Faucibus commodo massa rhoncus, volutpat.
-                    </figcaption>
-                </figure>
-                <p className="mt-6 text-xl leading-8">{post.description}</p>
-                <div className="mt-10 max-w-2xl">
-                    {/* Add content here if needed */}
-                </div>
-            </div>
+              <span className="absolute inset-0" />
+              {post.fields.Title}
+            </a>
+          </h3>
+          <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">{post.fields.Description}</p>
         </div>
-    );
+      </div>
+    </article>
+    </div>
+  );
+    
+  return (
+    <div className="bg-white py-12 sm:py-16">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mx-auto max-w-2xl text-center">
+          <h2 className="text-3xl   
+ font-bold tracking-tight text-gray-900 sm:text-4xl">Featured   
+ News</h2>
+        </div>
+        <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+         <Airtable
+          tableName="News"
+          view="Grid view"
+          renderItem={renderNewsItem}
+        />
+        </div>
+      </div>
+    </div>
+  );
 }
