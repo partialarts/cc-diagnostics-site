@@ -60,7 +60,7 @@ export default function Flow() {
             className={classNames(
               actionIdx === 0 ? 'rounded-tl-lg rounded-tr-lg' : '',
               actionIdx === actions.length - 1 ? 'rounded-bl-lg rounded-br-lg' : '',
-              'group relative bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500',
+              'group relative bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-ccDarkBlue',
               'flex'
             )}
           >

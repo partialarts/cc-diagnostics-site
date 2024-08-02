@@ -1,7 +1,7 @@
 export default function Info() {
     return (
       <div className="relative bg-gray-900">
-        <div className="relative h-80 overflow-hidden bg-indigo-600 md:absolute md:left-0 md:h-full md:w-1/3 lg:w-1/2">
+        <div className="relative h-80 overflow-hidden bg-ccDarkBlue md:absolute md:left-0 md:h-full md:w-1/3 lg:w-1/2">
           <img
             alt=""
             src="https://images.unsplash.com/photo-1525130413817-d45c1d127c42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920&q=60&blend=6366F1&sat=-100&blend-mode=multiply"
@@ -34,7 +34,7 @@ export default function Info() {
         </div>
         <div className="relative mx-auto max-w-7xl py-24 sm:py-32 lg:px-8 lg:py-40">
           <div className="pl-6 pr-6 md:ml-auto md:w-2/3 md:pl-16 lg:w-1/2 lg:pl-24 lg:pr-0 xl:pl-32">
-            <h2 className="text-base font-semibold leading-7 text-indigo-400">Methica CC Kit</h2>
+            <h2 className="text-base font-semibold leading-7 text-ccDarkBlue">Methica CC Kit</h2>
             <p className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">Revolutionising Cancer Diagnostics</p>
             <p className="mt-6 text-base leading-7 text-gray-300">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et, egestas tempus tellus etiam sed. Quam a

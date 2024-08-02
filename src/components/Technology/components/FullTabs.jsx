@@ -35,7 +35,7 @@ const tabs = [
             id="tabs"
             name="tabs"
             defaultValue={tabs.find((tab) => tab.current).name}
-            className="block w-full rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500"
+            className="block w-full rounded-md border-gray-300 focus:border-ccDarkBlue focus:ring-ccDarkBlue"
           >
             {tabs.map((tab) => (
               <option key={tab.name}>{tab.name}</option>
@@ -52,7 +52,7 @@ const tabs = [
                   aria-current={tab.current ? 'page' : undefined}
                   className={classNames(
                     tab.current
-                      ? 'border-indigo-500 text-indigo-600'
+                      ? 'border-ccDarkBlue text-ccLightBlue'
                       : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700',
                     'w-1/4 border-b-2 px-1 py-4 text-center text-sm font-medium',
                   )}

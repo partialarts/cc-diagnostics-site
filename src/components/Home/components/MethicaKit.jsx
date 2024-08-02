@@ -1,4 +1,4 @@
-import { LifebuoyIcon, NewspaperIcon, PhoneIcon } from '@heroicons/react/24/outline'
+import { ArrowTrendingUpIcon, BeakerIcon, LifebuoyIcon, NewspaperIcon, PhoneIcon, ShieldCheckIcon } from '@heroicons/react/24/outline'
 
 const supportLinks = [
   {
@@ -6,21 +6,21 @@ const supportLinks = [
     href: '#',
     description:
       'Of cases detected using CC Diagnostics superior technology',
-    icon: PhoneIcon,
+    icon: ArrowTrendingUpIcon,
   },
   {
     name: '100%',
     href: '#',
     description:
       'Cervical cancer detected of 3421 samples',
-    icon: LifebuoyIcon,
+    icon: ShieldCheckIcon,
   },
   {
     name: '6X',
     href: '#',
     description:
       'Times less hands on time of lab-technicians.',
-    icon: NewspaperIcon,
+    icon: BeakerIcon,
   },
 ]
 
@@ -54,14 +54,14 @@ export default function MethicaKit() {
           {supportLinks.map((link) => (
             <div key={link.name} className="flex flex-col rounded-2xl bg-white shadow-xl">
               <div className="relative flex-1 px-6 pb-8 pt-16 md:px-8">
-                <div className="absolute top-0 inline-block -translate-y-1/2 transform rounded-xl bg-indigo-600 p-5 shadow-lg">
+                <div className="absolute top-0 inline-block -translate-y-1/2 transform rounded-xl bg-ccDarkBlue p-5 shadow-lg">
                   <link.icon aria-hidden="true" className="h-6 w-6 text-white" />
                 </div>
                 <h3 className="text-xl font-medium text-gray-900">{link.name}</h3>
                 <p className="mt-4 text-base text-gray-500">{link.description}</p>
               </div>
               <div className="rounded-bl-2xl rounded-br-2xl bg-gray-50 p-6 md:px-8">
-                <a href={link.href} className="text-base font-medium text-indigo-700 hover:text-indigo-600">
+                <a href={link.href} className="text-base font-medium text-ccDarkBlue hover:text-ccLightBlue">
                   Contact us<span aria-hidden="true"> &rarr;</span>
                 </a>
               </div>

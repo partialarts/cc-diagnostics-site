@@ -10,7 +10,7 @@ export default function FeaturedNews() {
     return (
         <div className="relative bg-sky-500 px-6 py-32 lg:px-8">
             <div className="text-left mx-auto max-w-3xl text-base leading-7 text-gray-700">
-                {/* <p className="text-base font-semibold leading-7 text-indigo-600">Introducing</p> */}
+                {/* <p className="text-base font-semibold leading-7 text-ccDarkBlue">Introducing</p> */}
                 <h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Discover the Latest Advancements in Cervical Cancer Detection</h1>
                 <figure className="mt-16">
                     <img

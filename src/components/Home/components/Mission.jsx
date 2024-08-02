@@ -1,7 +1,7 @@
   
   export default function Mission() {
     return (
-      <div className="bg-sky-100 py-12 sm:py-16">
+      <div className="bg-ccAliceBlue py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto grid max-w-2xl grid-cols-1 items-start gap-x-8 gap-y-16 sm:gap-y-24 lg:mx-0 lg:max-w-none lg:grid-cols-2">
           {/* img container below */}
@@ -19,7 +19,7 @@
 
             <div>
               <div className="text-base leading-7 text-gray-700 lg:max-w-lg">
-                <p className="text-base font-semibold leading-7 text-indigo-600">CC Diagnostics</p>
+                <p className="text-base font-semibold leading-7 text-ccDarkBlue">CC Diagnostics</p>
                 <h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                 Empowering women through
                 optimal cervical cancer screening performance, availability and comfort.
@@ -31,7 +31,7 @@
                 </div>
               </div>
               <div className="mt-10 flex">
-                <a href="#" className="text-base font-semibold leading-7 text-indigo-600">
+                <a href="#" className="text-base font-semibold leading-7 text-ccDarkBlue">
                   Contact Us <span aria-hidden="true">&rarr;</span>
                 </a>
               </div>

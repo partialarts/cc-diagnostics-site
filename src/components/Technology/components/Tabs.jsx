@@ -63,7 +63,7 @@ export default function Tabs() {
                   {tabs.map((tab) => (
                     <Tab
                       key={tab.name}
-                      className="whitespace-nowrap border-b-2 border-transparent py-6 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700 data-[selected]:border-indigo-500 data-[selected]:text-indigo-600"
+                      className="whitespace-nowrap border-b-2 border-transparent py-6 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700 data-[selected]:border-ccDarkBlue data-[selected]:text-ccDarkBlue"
                     >
                       {tab.name}
                     </Tab>
