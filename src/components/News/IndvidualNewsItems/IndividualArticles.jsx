@@ -44,12 +44,12 @@ export default function IndividualArticles() {
       <button
         type="button"
         onClick={() => navigate('/news')}
-        className="fixed bottom-4 right-4 rounded-full bg-indigo-600 p-2 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+        className="fixed bottom-4 right-4 rounded-full bg-ccDarkBlue p-2 text-white shadow-sm hover:bg-ccDarkBlue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ccDarkBlue"
       >
         <ArrowUturnLeftIcon aria-hidden="true" className="h-5 w-5" />
       </button>
       <div className="mx-auto max-w-3xl text-base leading-7 text-gray-700">
-        {/* <p className="text-base font-semibold leading-7 text-indigo-600">Introducing</p> */}
+        {/* <p className="text-base font-semibold leading-7 text-ccDarkBlue">Introducing</p> */}
         <h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{post.title}</h1>
         <figure className="mt-16">
           <img
