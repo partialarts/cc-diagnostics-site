@@ -23,7 +23,7 @@ const Header = () => {
                 <NavLink to="/technology" className="text-sm font-semibold leading-6 text-ccDarkBlue">Technology</NavLink>
                     <NavLink to="/about" className="text-sm font-semibold leading-6 text-ccDarkBlue">About</NavLink>
                     <NavLink to="/news" className="text-sm font-semibold leading-6 text-ccDarkBlue">News</NavLink>
-                    <NavLink to="/contact"><button className="text-sm font-semibold leading-6 text-white bg-ccDarkBlue hover:text-ccDarkBlue hover:bg-ccLightBlue">Contact</button></NavLink>
+                    <NavLink to="/contact"><button className="text-sm font-semibold leading-6 text-white bg-ccDarkBlue hover:text-ccDarkBlue hover:bg-ccAliceBlue">Contact</button></NavLink>
                 </div>
                 <div className="flex lg:hidden">
                     <button
@@ -42,7 +42,7 @@ const Header = () => {
                 menuOpen && (
                     <div className="lg:hidden" role="dialog" aria-modal="true">
                         <div className="fixed inset-0 z-50"></div>
-                        <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+                        <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-ccAliceBlue/10">
                             <div className="flex items-center justify-between">
                                 <NavLink to="/" className="-m-1.5 p-1.5">
                                     <span className="sr-only">CC Diagnostics</span>
@@ -69,7 +69,7 @@ const Header = () => {
                                     <NavLink to="/technology" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-ccDarkBlue hover:bg-gray-50">Technology</NavLink>
                                         <NavLink to="/about" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-ccDarkBlue hover:bg-gray-50">About</NavLink>
                                         <NavLink to="/news" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-ccDarkBlue hover:bg-gray-50">News</NavLink>
-                                        <NavLink to="/contact"><button className="mx-auto block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 hover:bg-ccLightBlue hover:text-ccDarkBlue bg-ccDarkBlue text-white">Contact</button></NavLink>
+                                        <NavLink to="/contact"><button className="mx-auto block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 hover:bg-ccAliceBlue hover:text-ccDarkBlue bg-ccDarkBlue text-white">Contact</button></NavLink>
                                     </div>
                                 </div>
                             </div>

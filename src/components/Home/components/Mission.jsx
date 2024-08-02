@@ -1,7 +1,7 @@
   
   export default function Mission() {
     return (
-      <div className="bg-sky-100 py-12 sm:py-16">
+      <div className="bg-ccAliceBlue py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto grid max-w-2xl grid-cols-1 items-start gap-x-8 gap-y-16 sm:gap-y-24 lg:mx-0 lg:max-w-none lg:grid-cols-2">
           {/* img container below */}

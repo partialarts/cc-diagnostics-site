@@ -1,4 +1,4 @@
-import { LifebuoyIcon, NewspaperIcon, PhoneIcon } from '@heroicons/react/24/outline'
+import { ArrowTrendingUpIcon, BeakerIcon, LifebuoyIcon, NewspaperIcon, PhoneIcon, ShieldCheckIcon } from '@heroicons/react/24/outline'
 
 const supportLinks = [
   {
@@ -6,21 +6,21 @@ const supportLinks = [
     href: '#',
     description:
       'Of cases detected using CC Diagnostics superior technology',
-    icon: PhoneIcon,
+    icon: ArrowTrendingUpIcon,
   },
   {
     name: '100%',
     href: '#',
     description:
       'Cervical cancer detected of 3421 samples',
-    icon: LifebuoyIcon,
+    icon: ShieldCheckIcon,
   },
   {
     name: '6X',
     href: '#',
     description:
       'Times less hands on time of lab-technicians.',
-    icon: NewspaperIcon,
+    icon: BeakerIcon,
   },
 ]
 
