@@ -4,7 +4,7 @@ import Nav from './components/common/Nav/Nav';
 import './App.css';
 import Home from './components/Home/Home';
 import Footer from './components/common/Footer/Footer';
-import Technology from './components/Technology/Technology';
+import Products from './components/Products/Products';
 import About from './components/About/About';
 import News from './components/News/News';
 import Contact from './components/Contact/Contact';
@@ -18,7 +18,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="home" element={<Home />} />
-        <Route path="technology" element={<Technology />} />
+        <Route path="products" element={<Products />} />
         <Route path="about" element={<About />} />
         <Route path="news" element={<News />} />
         <Route path="contact" element={<Contact />} />
