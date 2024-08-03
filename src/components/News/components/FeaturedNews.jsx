@@ -123,10 +123,14 @@
 
 import React from "react";
 import Airtable from "../../common/Airtable/Airtable";
+import dayjs from 'dayjs';
 
 export default function FeaturedNews() {
 
-  const renderNewsItem = (post) => ( 
+  const renderNewsItem = (post) => {
+    const formattedDate = dayjs(post.createdTime).format("D MMM, YYYY");
+
+    return (
     <div className="lg:w-full"> 
     <article key={post.id} className="flex flex-col items-start justify-between">
       <div className="relative w-full">
@@ -135,15 +139,20 @@ export default function FeaturedNews() {
           src={post.fields.Photo[0].url}
           className="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
         />
-        <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
-      </div>-
+        <div className="absolute inset-0 pointer-events-none rounded-2xl ring-1 ring-inset ring-gray-900/10" />
+      </div>
       <div className="max-w-xl">
+      <div className="mt-8 flex items-center gap-x-4 text-xs">
+                    <time dateTime={post.createdTime} className="text-gray-500">
+                      {formattedDate}
+                    </time>
+                    </div>
         <div className="group   
  relative">
-          <h3 className="mt-1 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+          <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
             <a href={post.fields.href}>   
 
-              <span className="absolute inset-0" />
+              <span className="absolute inset-0 pointer-events-none" />
               {post.fields.Title}
             </a>
           </h3>
@@ -153,6 +162,7 @@ export default function FeaturedNews() {
     </article>
     </div>
   );
+};
     
   return (
     <div className="bg-white py-12 sm:py-16">
