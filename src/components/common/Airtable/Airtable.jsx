@@ -8,8 +8,8 @@ function Airtable({ tableName, view, renderItem }) {
 
   useEffect(() => {
     airtableBase(tableName)
-      .select({ view })
-      .eachPage(
+    .select({ view })
+    .eachPage(
         (records, fetchNextPage) => {
           const formattedRecords = records.map((record) => record._rawJson); 
           setRecords(formattedRecords);
