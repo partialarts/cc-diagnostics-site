@@ -8,7 +8,10 @@ function Airtable({ tableName, view, renderItem }) {
 
   useEffect(() => {
     airtableBase(tableName)
-      .select({ view })
+    .select({ 
+      view,
+      filterByFormula: "{Featured?} = TRUE()"
+    })
       .eachPage(
         (records, fetchNextPage) => {
           const formattedRecords = records.map((record) => record._rawJson); 
