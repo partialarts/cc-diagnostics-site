@@ -40,7 +40,7 @@ export default function NewsFeed() {
                       {formattedDate}
                     </time>
                     </div>
-            <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600 text-left">
+            <p className="mt-3 line-clamp-3 text-sm leading-6 text-gray-600 text-left">
               {post.fields.Description}
             </p>
           </div>
