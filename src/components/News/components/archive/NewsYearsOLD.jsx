@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+
 
 const posts = [
   {
@@ -67,6 +67,8 @@ const posts = [
   },
 ];
 
+import React, { useState } from 'react';
+
 function NewsCard({ post }) {
   if (!post) {
     return null;
@@ -95,7 +97,7 @@ function NewsCard({ post }) {
           <p className="mt-5 text-sm leading-6 text-gray-600 text-left">{post.description}</p>
         </div>
         <div className="mt-6 flex border-t border-gray-900/5 pt-6">
-          {/* Additional post details can go here */}
+          {}
         </div>
       </div>
     </article>

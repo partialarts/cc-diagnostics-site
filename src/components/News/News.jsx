@@ -6,7 +6,7 @@ import FeaturedNews from './components/FeaturedNews';
 // import HomeNews from '../Home/components/HomeNews';
 // import ArticleCards from './components/ArticleCards';
 // import NewsCards from './components/NewsCard';
-import NewsYears from './components/NewsYears';
+import NewsFeed from './components/NewsFeed';
 import FNSkeleton from './components/FNSkeleton';
 
 function News() {
@@ -28,7 +28,7 @@ function News() {
       {/* <ArticleCards/> */}
 {loading ? <FNSkeleton/> : <FeaturedNews />}
       
-      <NewsYears />
+      <NewsFeed />
     </>
   );
 }
