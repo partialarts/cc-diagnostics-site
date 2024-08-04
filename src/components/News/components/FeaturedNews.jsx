@@ -143,7 +143,7 @@ export default function FeaturedNews() {
         <div className="absolute inset-0 pointer-events-none rounded-2xl ring-1 ring-inset ring-gray-900/10" />
       </div>
       <div className="max-w-xl">
-      <div className="mt-8 flex items-center gap-x-4 text-xs">
+      <div className="mt-5 flex items-center gap-x-4 text-xs">
                     <time dateTime={post.createdTime} className="text-gray-500">
                       {formattedDate}
                     </time>
@@ -157,7 +157,7 @@ export default function FeaturedNews() {
               {post.fields.Title}
             </a>
           </h3>
-          <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">{post.fields.Description}</p>
+          <p className="mt-3 line-clamp-3 text-sm leading-6 text-gray-600">{post.fields.Description}</p>
         </div>
       </div>
     </article>
