@@ -59,7 +59,7 @@ export default function NewsFeed() {
             <h2
               key={year}
               className={`lg:p-4 p-8 cursor-pointer ${
-                selectedYear === year ? "text-blue-300" : ""
+                selectedYear === year ? "text-ccLightBlue" : ""
               }`}
               onClick={() => setSelectedYear(year)}
             >
