@@ -9,12 +9,6 @@ const navigation = {
     { name: "News", href: "/news" },
     { name: "Contact", href: "/contact" },
   ],
-  contact: [
-    { name: "+42 9876 4678", href: "#" },
-    { name: "info@infomedical.com", href: "#" },
-    { name: "blank1", href: "#" },
-    { name: "blank2", href: "#" },
-  ],
   social: [
     {
       name: "Facebook",
@@ -76,7 +70,7 @@ const Partners = (partner) => {
           href={partner.fields.Site}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-sm leading-6 text-ccDarkBlue hover:text-ccLightBlue"
+          className="text-sm leading-6 text-gray-600 hover:text-ccLightBlue"
         >
           <img src={partner.fields.Logo && partner.fields.Logo.length > 0 ? partner.fields.Logo[0].url : placeholder} alt={partner.fields.Partner} className="h-6" />
         </a>
@@ -84,6 +78,21 @@ const Partners = (partner) => {
     </ul>
   );
 };
+
+const contact = ( contact ) => {
+  return (
+    <ul role="list" className="mt-6 space-y-4">
+                    <li key={contact.id}>
+                      <a
+                        // href={contact.href}
+                        className="text-sm leading-6 text-gray-600"
+                      >
+                        {contact.fields.info}
+                      </a>
+                    </li>
+                </ul>
+  )
+}
 
 export default function Footer() {
   return (
@@ -103,7 +112,7 @@ export default function Footer() {
                 <a
                   key={item.name}
                   href={item.href}
-                  className="text-ccDarkBlue hover:text-ccLightBlue"
+                  className="text-gray-600 hover:text-ccLightBlue"
                 >
                   <span className="sr-only">{item.name}</span>
                   <item.icon aria-hidden="true" className="h-6 w-6" />
@@ -122,7 +131,7 @@ export default function Footer() {
                     <li key={item.name}>
                       <a
                         href={item.href}
-                        className="text-sm leading-6 text-ccDarkBlue hover:text-ccLightBlue"
+                        className="text-sm leading-6 text-gray-600 hover:text-ccLightBlue"
                       >
                         {item.name}
                       </a>
@@ -130,22 +139,13 @@ export default function Footer() {
                   ))}
                 </ul>
               </div>
+                            {/* Contact section */}
+
               <div className="mt-10 md:mt-0">
                 <h3 className="text-sm font-semibold leading-6 text-gray-900">
                   Contact
                 </h3>
-                <ul role="list" className="mt-6 space-y-4">
-                  {navigation.contact.map((item) => (
-                    <li key={item.name}>
-                      <a
-                        href={item.href}
-                        className="text-sm leading-6 text-ccDarkBlue hover:text-ccLightBlue"
-                      >
-                        {item.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
+                <Airtable tableName="Contact" view="Grid view" renderItem={contact} />
               </div>
               {/* Partner section */}
             </div>
