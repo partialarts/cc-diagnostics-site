@@ -17,6 +17,7 @@ import Stats from './components/Stats';
 import Mission from './components/Mission';
 import MethicaKit from './components/MethicaKit';
 import HomeNews from './components/HomeNews';
+import FeaturedNews from '../News/components/FeaturedNews';
 
 function Home() {
     return (
@@ -25,7 +26,8 @@ function Home() {
             <Stats />
             <Mission />
             <MethicaKit />
-            <HomeNews />
+            {/* <HomeNews /> */}
+            <FeaturedNews/>
         </>
     );
 }
