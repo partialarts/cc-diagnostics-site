@@ -79,18 +79,18 @@ const Partners = (partner) => {
   );
 };
 
-const contact = ( contact ) => {
+const contact = (contact) => {
   return (
     <ul role="list" className="mt-6 space-y-4">
-                    <li key={contact.id}>
-                      <a
-                        // href={contact.href}
-                        className="text-sm leading-6 text-gray-600"
-                      >
-                        {contact.fields.info}
-                      </a>
-                    </li>
-                </ul>
+      <li key={contact.id}>
+        <p
+          // href={contact.href}
+          className="text-sm leading-6 text-gray-600"
+        >
+          {contact.fields.info}
+        </p>
+      </li>
+    </ul>
   )
 }
 
@@ -139,7 +139,7 @@ export default function Footer() {
                   ))}
                 </ul>
               </div>
-                            {/* Contact section */}
+              {/* Contact section */}
 
               <div className="mt-10 md:mt-0">
                 <h3 className="text-sm font-semibold leading-6 text-gray-900">
@@ -149,11 +149,11 @@ export default function Footer() {
               </div>
               {/* Partner section */}
             </div>
-              <div>
-                <h3 className="text-sm font-semibold leading-6 text-gray-900">
-                  Partners
-                </h3>
-            <div className="md:grid md:grid-cols-2 md:gap-8">
+            <div>
+              <h3 className="text-sm font-semibold leading-6 text-gray-900">
+                Partners
+              </h3>
+              <div className="md:grid md:grid-cols-2 md:gap-8">
                 <Airtable tableName="Partners" view="Grid view" renderItem={Partners} />
               </div>
             </div>

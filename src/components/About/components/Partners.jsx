@@ -1,3 +1,20 @@
+import Airtable from "../../common/Airtable/Airtable";
+
+const partnerLogo = (partner) => {
+
+  return (
+<img
+key={partner.id}
+src={partner.fields.Logo && partner.fields.Logo.length > 0 ? partner.fields.Logo[0].url : placeholder} 
+alt={partner.fields.Partner}
+width={105}
+height={48}
+className="max-h-12 w-full object-contain object-left"
+/>
+  );
+};
+
+
 export default function Partners() {
     return (
       <div className="bg-white py-24 sm:py-32">
@@ -22,48 +39,7 @@ export default function Partners() {
               </div>
             </div>
             <div className="mx-auto grid w-full max-w-xl grid-cols-2 items-center gap-y-12 sm:gap-y-14 lg:mx-0 lg:max-w-none lg:pl-8">
-              <img
-                alt="Tuple"
-                src="https://tailwindui.com/img/logos/tuple-logo-gray-900.svg"
-                width={105}
-                height={48}
-                className="max-h-12 w-full object-contain object-left"
-              />
-              <img
-                alt="Reform"
-                src="https://tailwindui.com/img/logos/reform-logo-gray-900.svg"
-                width={104}
-                height={48}
-                className="max-h-12 w-full object-contain object-left"
-              />
-              <img
-                alt="SavvyCal"
-                src="https://tailwindui.com/img/logos/savvycal-logo-gray-900.svg"
-                width={140}
-                height={48}
-                className="max-h-12 w-full object-contain object-left"
-              />
-              <img
-                alt="Laravel"
-                src="https://tailwindui.com/img/logos/laravel-logo-gray-900.svg"
-                width={136}
-                height={48}
-                className="max-h-12 w-full object-contain object-left"
-              />
-              <img
-                alt="Transistor"
-                src="https://tailwindui.com/img/logos/transistor-logo-gray-900.svg"
-                width={158}
-                height={48}
-                className="max-h-12 w-full object-contain object-left"
-              />
-              <img
-                alt="Statamic"
-                src="https://tailwindui.com/img/logos/statamic-logo-gray-900.svg"
-                width={147}
-                height={48}
-                className="max-h-12 w-full object-contain object-left"
-              />
+            <Airtable tableName="Partners" view="Grid view" renderItem={partnerLogo} />
             </div>
           </div>
         </div>
