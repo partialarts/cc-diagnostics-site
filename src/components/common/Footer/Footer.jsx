@@ -1,26 +1,14 @@
 import React from "react";
 import logo from "../../../assets/images/logo.png";
+import Airtable from "../../common/Airtable/Airtable";
 
 const navigation = {
   siteMap: [
-    { name: "Technology", href: "#" },
-    { name: "About", href: "#" },
-    { name: "News", href: "#" },
-    { name: "Contact Us", href: "#" },
+    { name: "Products", href: "/products" },
+    { name: "About", href: "/about" },
+    { name: "News", href: "/news" },
+    { name: "Contact", href: "/contact" },
   ],
-  reachOut: [
-    { name: "+42 9876 4678", href: "#" },
-    { name: "info@infomedical.com", href: "#" },
-    { name: "blank1", href: "#" },
-    { name: "blank2", href: "#" },
-  ],
-  partners: [
-    { name: "Partner1", href: "#" },
-    { name: "Partner2", href: "#" },
-    { name: "Partner3", href: "#" },
-    { name: "Partner4", href: "#" },
-  ],
-  
   social: [
     {
       name: "Facebook",
@@ -53,19 +41,18 @@ const navigation = {
       href: "#",
       icon: (props) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
-          <path d="M13.6823 10.6218L20.2391 3H18.6854L12.9921 9.61788L8.44486 3H3.2002L10.0765 13.0074L3.2002 21H4.75404L10.7663 14.0113L15.5685 21H20.8131L13.6819 10.6218H13.6823ZM11.5541 13.0956L10.8574 12.0991L5.31391 4.16971H7.70053L12.1742 10.5689L12.8709 11.5655L18.6861 19.8835H16.2995L11.5541 13.096V13.0956Z" />
+          <path d="M13.6823 10.6218L20.2391 3H18.6854L12.9921 9.61788L8.44486 3H3.2002L10.0765 13.0074L3.2002 21H4.75404L10.7663 14.0113L15.5685 21H20.8131L13.6819 10.6218H13.6823ZM11.5541 13.0956L10.8574 12.0991L5.31391 4.16971H7.70053L12.1742 10.0167L12.871 11.0131L18.3224 18.9303H15.9356L11.5541 13.0956Z" />
         </svg>
       ),
     },
-    
     {
-      name: "YouTube",
+      name: "LinkedIn",
       href: "#",
       icon: (props) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
             fillRule="evenodd"
-            d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.746 22 12 22 12s0 3.255-.418 4.814a2.504 2.504 0 0 1-1.768 1.768c-1.56.419-7.814.419-7.814.419s-6.255 0-7.814-.419a2.505 2.505 0 0 1-1.768-1.768C2 15.255 2 12 2 12s0-3.255.417-4.814a2.507 2.507 0 0 1 1.768-1.768C5.744 5 11.998 5 11.998 5s6.255 0 7.814.418ZM15.194 12 10 15V9l5.194 3Z"
+            d="M16 8a6 6 0 00-4.472 10H10v-7H7v7H4V9h3v1.528A6 6 0 0118 8v11h-3V8h1zM6 6a1 1 0 100-2 1 1 0 000 2z"
             clipRule="evenodd"
           />
         </svg>
@@ -73,6 +60,39 @@ const navigation = {
     },
   ],
 };
+
+const Partners = (partner) => {
+
+  return (
+    <ul role="list" className="mt-6 space-y-4">
+      <li key={partner.id}>
+        <a
+          href={partner.fields.Site}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-sm leading-6 text-gray-600 hover:text-ccLightBlue"
+        >
+          <img src={partner.fields.Logo && partner.fields.Logo.length > 0 ? partner.fields.Logo[0].url : placeholder} alt={partner.fields.Partner} className="h-6" />
+        </a>
+      </li>
+    </ul>
+  );
+};
+
+const contact = ( contact ) => {
+  return (
+    <ul role="list" className="mt-6 space-y-4">
+                    <li key={contact.id}>
+                      <a
+                        // href={contact.href}
+                        className="text-sm leading-6 text-gray-600"
+                      >
+                        {contact.fields.info}
+                      </a>
+                    </li>
+                </ul>
+  )
+}
 
 export default function Footer() {
   return (
@@ -92,7 +112,7 @@ export default function Footer() {
                 <a
                   key={item.name}
                   href={item.href}
-                  className="text-ccDarkBlue hover:text-ccLightBlue"
+                  className="text-gray-600 hover:text-ccLightBlue"
                 >
                   <span className="sr-only">{item.name}</span>
                   <item.icon aria-hidden="true" className="h-6 w-6" />
@@ -111,7 +131,7 @@ export default function Footer() {
                     <li key={item.name}>
                       <a
                         href={item.href}
-                        className="text-sm leading-6 text-ccDarkBlue hover:text-ccLightBlue"
+                        className="text-sm leading-6 text-gray-600 hover:text-ccLightBlue"
                       >
                         {item.name}
                       </a>
@@ -119,41 +139,22 @@ export default function Footer() {
                   ))}
                 </ul>
               </div>
+                            {/* Contact section */}
+
               <div className="mt-10 md:mt-0">
                 <h3 className="text-sm font-semibold leading-6 text-gray-900">
-                  Reach Out
+                  Contact
                 </h3>
-                <ul role="list" className="mt-6 space-y-4">
-                  {navigation.reachOut.map((item) => (
-                    <li key={item.name}>
-                      <a
-                        href={item.href}
-                        className="text-sm leading-6 text-ccDarkBlue hover:text-ccLightBlue"
-                      >
-                        {item.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
+                <Airtable tableName="Contact" view="Grid view" renderItem={contact} />
               </div>
+              {/* Partner section */}
             </div>
-            <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
                 <h3 className="text-sm font-semibold leading-6 text-gray-900">
                   Partners
                 </h3>
-                <ul role="list" className="mt-6 space-y-4">
-                  {navigation.partners.map((item) => (
-                    <li key={item.name}>
-                      <a
-                        href={item.href}
-                        className="text-sm leading-6 text-ccDarkBlue hover:text-ccLightBlue"
-                      >
-                        {item.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
+            <div className="md:grid md:grid-cols-2 md:gap-8">
+                <Airtable tableName="Partners" view="Grid view" renderItem={Partners} />
               </div>
             </div>
           </div>
