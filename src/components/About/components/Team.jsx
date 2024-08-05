@@ -7,8 +7,9 @@ const teamMember = (teamMember) => {
     <li key={teamMember.id}>
       <img src={teamMember.fields.Photo && teamMember.fields.Photo.length > 0 ? teamMember.fields.Photo[0].url : placeholder}
         alt={teamMember.fields.Name} className="mx-auto h-56 w-56 rounded-full" />
-      <h3 className="mt-6 text-base font-semibold leading-7 tracking-tight text-gray-900">{teamMember.fields.Name}</h3>
-      <p className="text-sm leading-6 text-gray-600">{teamMember.fields.Role}</p>
+      <h3 className="mt-6 text-base font-semibold leading-7 tracking-tight text-ccDarkBlue">{teamMember.fields.Name}</h3>
+      <p className="text-sm leading-6 text-gray-900">{teamMember.fields.Role}</p>
+      <p className="text-sm leading-6 text-gray-600">{teamMember.fields.Description}</p>
       <ul role="list" className="mt-6 flex justify-center gap-x-6">
         {/* <li>
             <a href={person.xUrl} className="text-gray-400 hover:text-gray-500">
@@ -19,7 +20,7 @@ const teamMember = (teamMember) => {
             </a>
           </li> */}
         <li>
-          <a href={teamMember.fields.LinkedIn[0].url} className="text-gray-400 hover:text-gray-500">
+          <a href={teamMember.fields.LinkedIn[0].url} className="text-ccDarkBlue hover:text-ccLightBlue">
             <span className="sr-only">LinkedIn</span>
             <svg fill="currentColor" viewBox="0 0 20 20" aria-hidden="true" className="h-5 w-5">
               <path
