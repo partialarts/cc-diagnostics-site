@@ -3,10 +3,10 @@ import logo from "../../../assets/images/logo.png";
 
 const navigation = {
   siteMap: [
-    { name: "Technology", href: "#" },
-    { name: "About", href: "#" },
-    { name: "News", href: "#" },
-    { name: "Contact Us", href: "#" },
+    { name: "Products", href: "/products" },
+    { name: "About", href: "/about" },
+    { name: "News", href: "/news" },
+    { name: "Contact", href: "/contact" },
   ],
   reachOut: [
     { name: "+42 9876 4678", href: "#" },
