@@ -1,6 +1,7 @@
 import Airtable from "../../common/Airtable/Airtable";
 import ContactHeavy from "../../common/ContactButtons/ContactHeavy";
-import eu_flag from "../../../assets/images/eu_flag.jpg"
+// import eu_flag from "../../../assets/images/eu_flag.jpg"
+import logo_erdf2014 from "../../../assets/images/logo_erdf2014.png"
 const partnerLogo = (partner) => {
 
   return (
@@ -44,7 +45,7 @@ export default function Partners() {
   return (
     <div className="bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <h2 className="pb-8 text-center text-3xl font-semibold leading-8 text-gray-900">
+        <h2 className="pb-16 text-center text-3xl font-semibold leading-8 text-ccDarkBlue">
           Our Partners
         </h2>
         {/* <div className="mx-auto mt-10 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5">
@@ -53,11 +54,11 @@ export default function Partners() {
         
 <img
 key=""
-src={eu_flag}
+src={logo_erdf2014}
 alt="Eurpoean Logo"
 width={105}
 height={48}
-className="max-h-36 w-full object-contain object-center"
+className="max-h-24 w-full object-contain object-center"
 />
         <ul
           role="list"
