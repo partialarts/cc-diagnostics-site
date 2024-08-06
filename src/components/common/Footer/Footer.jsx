@@ -115,7 +115,7 @@ export default function Footer() {
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-600 hover:text-ccLightBlue align-center justify-center"
+                  className="text-ccDarkBlue hover:text-ccLightBlue align-center justify-center"
                 >
                   <span className="sr-only">{item.name}</span>
                   <item.icon aria-hidden="true" className="h-6 w-6" />
