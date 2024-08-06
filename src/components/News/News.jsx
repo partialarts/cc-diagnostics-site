@@ -8,6 +8,7 @@ import FeaturedNews from './components/FeaturedNews';
 // import NewsCards from './components/NewsCard';
 import NewsFeed from './components/NewsFeed';
 import FNSkeleton from './components/FNSkeleton';
+import NFSkeleton from './components/NFSkeleton';
 
 function News() {
 
@@ -21,14 +22,15 @@ function News() {
 
   return (
     <>
-      {/* <FeaturedNews/> */}
       {/* <Hero/> */}
       {/* <TimelineNews/> */}
       {/* <Articles/> */}
       {/* <ArticleCards/> */}
 {loading ? <FNSkeleton/> : <FeaturedNews />}
-      
-      <NewsFeed />
+{loading ? <NFSkeleton/> : <NewsFeed />}
+
+      {/* <FeaturedNews/> */}
+      {/* <NewsFeed /> */}
     </>
   );
 }

@@ -26,7 +26,7 @@ function Airtable({ tableName, view, renderItem }) {
       );
   }, [tableName, view]);
 
-  if (isLoading) return <p>Loading...</p>;
+  // if (isLoading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
   return <>{records.map(renderItem)}</>;

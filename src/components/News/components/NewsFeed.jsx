@@ -1,18 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Airtable from "../../common/Airtable/Airtable";
 import dayjs from "dayjs";
 import placeholder from "../../../assets/images/placeholder.png";
+import NFSkeleton from "./NFSkeleton";
 
 export default function NewsFeed() {
   const [selectedYear, setSelectedYear] = useState("2024");
+  const [loading, setLoading] = useState(true);
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    // Simulate loading time
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  }, []);
 
   const renderNewsItem = (post) => {
     const formattedDate = dayjs(post.createdTime).format("D MMM, YYYY");
 
     return (
-      <article // Apply flex classes directly to the article
+      <article
         key={post.id}
-        className="relative isolate flex flex-col gap-8 lg:flex-row lg:w-full" 
+        className="relative isolate flex flex-col gap-8 lg:flex-row lg:w-full"
       >
         <div className="relative aspect-[16/9] sm:aspect-[2/1] lg:aspect-square lg:w-64 lg:shrink-0">
           <img
@@ -27,25 +37,22 @@ export default function NewsFeed() {
           <div className="absolute inset-0 pointer-events-none rounded-2xl ring-1 ring-inset ring-gray-900/10" />
         </div>
         
-          <div className="group relative max-w-xl">
-            <h3 className="mt-0 text-lg font-semibold leading-6 text-ccDarkBlue group-hover:text-ccLightBlue   
- text-left">
-              <a href={post.fields.href}>
-                <span className="absolute inset-0 pointer-events-none" />
-                {post.fields.Title}
-              </a>
-            </h3>
-            <div className="mt-3 flex items-center gap-x-4 text-xs">
-                    <time dateTime={post.createdTime} className="text-gray-500">
-                      {formattedDate}
-                    </time>
-                    </div>
-            <p className="mt-3 line-clamp-3 text-sm leading-6 text-gray-600 text-left">
-              {post.fields.Description}
-            </p>
+        <div className="group relative max-w-xl">
+          <h3 className="mt-0 text-lg font-semibold leading-6 text-ccDarkBlue group-hover:text-ccLightBlue text-left">
+            <a href={post.fields.href}>
+              <span className="absolute inset-0 pointer-events-none" />
+              {post.fields.Title}
+            </a>
+          </h3>
+          <div className="mt-3 flex items-center gap-x-4 text-xs">
+            <time dateTime={post.createdTime} className="text-gray-500">
+              {formattedDate}
+            </time>
           </div>
-          {/* ... (rest of the article content) ... */}
-        
+          <p className="mt-3 line-clamp-3 text-sm leading-6 text-gray-600 text-left">
+            {post.fields.Description}
+          </p>
+        </div>
       </article>
     );
   };
@@ -72,17 +79,17 @@ export default function NewsFeed() {
         <div className="col-span-2">
           <div className="mx-auto max-w-2xl lg:max-w-4xl">
             <div className="space-y-20 lg:space-y-20">
-              <Airtable
-                tableName="News"
-                view="Grid view"
-                renderItem={(post) => {
-                  // Filter by year within renderItem
-                  if (!post.createdTime.startsWith(selectedYear)) {
-                    return null; // Don't render if year doesn't match
-                  }
-                  return renderNewsItem(post); // Render if year matches
-                }}
-              />
+                <Airtable
+                  tableName="News"
+                  view="Grid view"
+                  renderItem={(post) => {
+                    // Filter by year within renderItem
+                    if (!post.createdTime.startsWith(selectedYear)) {
+                      return null; // Don't render if year doesn't match
+                    }
+                    return renderNewsItem(post); // Render if year matches
+                  }}
+                />
             </div>
           </div>
         </div>
