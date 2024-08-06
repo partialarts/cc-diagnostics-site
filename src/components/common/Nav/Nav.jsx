@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from '../../../assets/images/logo.png';
+import ContactHeavy from '../../../components/common/ContactButtons/ContactHeavy'
 
 const Header = () => {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -56,9 +57,7 @@ const Header = () => {
                         News
                     </NavLink>
                     <NavLink to="/contact">
-                        <button className="text-sm font-semibold leading-6 text-white bg-ccDarkBlue hover:text-ccDarkBlue hover:bg-ccAliceBlue">
-                            Contact
-                        </button>
+                        <ContactHeavy />
                     </NavLink>
                 </div>
                 <div className="flex lg:hidden">
@@ -137,7 +136,8 @@ const Header = () => {
                                             News
                                         </NavLink>
                                         <NavLink to="/contact">
-                                            <button className="mx-auto block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 hover:bg-ccAliceBlue hover:text-ccDarkBlue bg-ccDarkBlue text-white" onClick={closeMenu}>
+                                            <button
+      className="rounded-md bg-ccDarkBlue px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-ccLightBlue hover:text-ccDarkBlue" onClick={closeMenu}>
                                                 Contact
                                             </button>
                                         </NavLink>

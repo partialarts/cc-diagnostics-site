@@ -28,7 +28,7 @@ export default function NewsFeed() {
         </div>
         
           <div className="group relative max-w-xl">
-            <h3 className="mt-0 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600   
+            <h3 className="mt-0 text-lg font-semibold leading-6 text-ccDarkBlue group-hover:text-ccLightBlue   
  text-left">
               <a href={post.fields.href}>
                 <span className="absolute inset-0 pointer-events-none" />
@@ -54,11 +54,11 @@ export default function NewsFeed() {
     <div className="bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Year filter section */}
-        <div className="years lg:col-span-1 lg:sticky lg:top-0 text-left text-xl font-bold tracking-tight text-gray-900">
+        <div className="years lg:col-span-1 lg:sticky lg:top-0 text-left text-xl font-bold tracking-tight text-ccDarkBlue">
           {["2024", "2023", "2022", "2021"].map((year) => (
             <h2
               key={year}
-              className={`lg:p-4 p-8 cursor-pointer ${
+              className={`lg:p-4 p-8 cursor-pointer hover:text-ccLightBlue ${
                 selectedYear === year ? "text-ccLightBlue" : ""
               }`}
               onClick={() => setSelectedYear(year)}

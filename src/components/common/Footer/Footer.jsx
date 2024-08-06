@@ -126,7 +126,7 @@ export default function Footer() {
           <div className="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
-                <h3 className="text-sm font-semibold leading-6 text-gray-900">
+                <h3 className="text-sm font-semibold leading-6 text-ccDarkBlue">
                   Site Map
                 </h3>
                 <ul role="list" className="mt-6 space-y-4">
@@ -145,7 +145,7 @@ export default function Footer() {
               {/* Contact section */}
 
               <div className="mt-10 md:mt-0">
-                <h3 className="text-sm font-semibold leading-6 text-gray-900">
+                <h3 className="text-sm font-semibold leading-6 text-ccDarkBlue">
                   Contact
                 </h3>
                 <Airtable tableName="Contact" view="Grid view" renderItem={contact} />
@@ -153,7 +153,7 @@ export default function Footer() {
               {/* Partner section */}
             </div>
             <div className="pl-8">
-              <h3 className="text-sm font-semibold leading-6 text-gray-900">
+              <h3 className="text-sm font-semibold leading-6 text-ccDarkBlue">
                 Partners
               </h3>
               <div className="md:grid md:grid-cols-2">
