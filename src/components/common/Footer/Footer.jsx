@@ -72,7 +72,8 @@ const Partners = (partner) => {
           rel="noopener noreferrer"
           className="text-sm leading-6 text-gray-600 hover:text-ccLightBlue"
         >
-          <img src={partner.fields.Logo && partner.fields.Logo.length > 0 ? partner.fields.Logo[0].url : placeholder} alt={partner.fields.Partner} className="h-6" />
+        <h6>{partner.fields.Partner}</h6>
+          {/* <img src={partner.fields.Logo && partner.fields.Logo.length > 0 ? partner.fields.Logo[0].url : placeholder} alt={partner.fields.Partner} className="h-6" /> */}
         </a>
       </li>
     </ul>
@@ -151,11 +152,11 @@ export default function Footer() {
               </div>
               {/* Partner section */}
             </div>
-            <div>
+            <div className="pl-8">
               <h3 className="text-sm font-semibold leading-6 text-gray-900">
                 Partners
               </h3>
-              <div className="md:grid md:grid-cols-2 md:gap-8">
+              <div className="md:grid md:grid-cols-2">
                 <Airtable tableName="Partners" view="Grid view" renderItem={Partners} />
               </div>
             </div>
