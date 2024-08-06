@@ -9,11 +9,15 @@ const Header = () => {
         setMenuOpen(!menuOpen);
     };
 
+    const closeMenu = () => {
+        setMenuOpen(false);
+    };
+
     return (
         <header className="sticky absolute inset-x-0 top-0 z-50">
             <nav className="flex items-center align-middle justify-between p-6 lg:px-8 bg-white backdrop-blur-lg" aria-label="Global">
                 <div className="flex lg:flex-1">
-                    <NavLink to="/" className="-m-1.5 p-1.5">
+                    <NavLink to="/" className="-m-1.5 p-1.5" onClick={closeMenu}>
                         <span className="sr-only">CC Diagnostics</span>
                         <img className="h-8 w-auto" src={logo} alt="Logo" />
                     </NavLink>
@@ -76,8 +80,7 @@ const Header = () => {
                         <div className="fixed inset-0 z-50"></div>
                         <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-ccAliceBlue/10">
                             <div className="flex items-center justify-between">
-                                <NavLink to="/" 
-                                className="-m-1.5 p-1.5">
+                                <NavLink to="/" className="-m-1.5 p-1.5" onClick={closeMenu}>
                                     <span className="sr-only">CC Diagnostics</span>
                                     <img className="h-8 w-auto" src={logo} alt="Logo" />
                                 </NavLink>
@@ -102,6 +105,7 @@ const Header = () => {
                                             className={({ isActive }) =>
                                                 isActive ? '-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-ccDarkBlue bg-gray-100' : '-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-ccDarkBlue hover:bg-gray-50'
                                             }
+                                            onClick={closeMenu}
                                         >
                                             Home
                                         </NavLink>
@@ -110,6 +114,7 @@ const Header = () => {
                                             className={({ isActive }) =>
                                                 isActive ? '-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-ccDarkBlue bg-gray-100' : '-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-ccDarkBlue hover:bg-gray-50'
                                             }
+                                            onClick={closeMenu}
                                         >
                                             Products
                                         </NavLink>
@@ -118,6 +123,7 @@ const Header = () => {
                                             className={({ isActive }) =>
                                                 isActive ? '-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-ccDarkBlue bg-gray-100' : '-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-ccDarkBlue hover:bg-gray-50'
                                             }
+                                            onClick={closeMenu}
                                         >
                                             About
                                         </NavLink>
@@ -126,11 +132,12 @@ const Header = () => {
                                             className={({ isActive }) =>
                                                 isActive ? '-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-ccDarkBlue bg-gray-100' : '-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-ccDarkBlue hover:bg-gray-50'
                                             }
+                                            onClick={closeMenu}
                                         >
                                             News
                                         </NavLink>
                                         <NavLink to="/contact">
-                                            <button className="mx-auto block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 hover:bg-ccAliceBlue hover:text-ccDarkBlue bg-ccDarkBlue text-white">
+                                            <button className="mx-auto block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 hover:bg-ccAliceBlue hover:text-ccDarkBlue bg-ccDarkBlue text-white" onClick={closeMenu}>
                                                 Contact
                                             </button>
                                         </NavLink>
