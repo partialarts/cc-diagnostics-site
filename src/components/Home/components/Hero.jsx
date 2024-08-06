@@ -24,7 +24,7 @@ export default function Hero() {
             </p>
             <div className="mt-10 flex items-center justify-left gap-x-6">
               <a
-                href="#"
+                href="/contact"
                 className="rounded-md bg-ccAliceBlue px-3.5 py-2.5 text-sm font-semibold text-ccDarkBlue shadow-sm hover:bg-ccDarkBlue hover:text-white 
                 hover:border-solid hover:border-ccLightBlue
                 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ccDarkBlue"
