@@ -9,7 +9,7 @@ const stats = [
       <>
         <div className="bg-white px-2 py-6 sm:py-16 lg:px-6">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+            <h2 className="text-4xl font-bold tracking-tight text-ccDarkBlue sm:text-6xl">
               Detect Cancer Early with Advanced Technology
             </h2>
             <p className="mt-6 text-lg leading-8 text-gray-600">
@@ -24,7 +24,7 @@ const stats = [
               {stats.map((stat) => (
                 <div key={stat.id} className="mx-auto flex max-w-xs flex-col gap-y-4">
                   <dt className="text-base leading-7 text-gray-600">{stat.name}</dt>
-                  <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
+                  <dd className="order-first text-3xl font-semibold tracking-tight text-ccDarkBlue sm:text-5xl">
                     {stat.value}
                   </dd>
                 </div>

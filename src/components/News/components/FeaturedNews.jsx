@@ -150,7 +150,7 @@ export default function FeaturedNews() {
                     </div>
         <div className="group   
  relative">
-          <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+          <h3 className="mt-3 text-lg font-semibold leading-6 text-ccDarkBlue group-hover:text-ccLightBlue">
             <a href={post.fields.href}>   
 
               <span className="absolute inset-0 pointer-events-none" />
@@ -170,7 +170,7 @@ export default function FeaturedNews() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl   
- font-bold tracking-tight text-gray-900 sm:text-4xl">Featured   
+ font-bold tracking-tight text-ccDarkBlue sm:text-4xl">Featured   
  News</h2>
         </div>
         <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">

@@ -39,7 +39,7 @@ const SearchBar = () => {
     return (
       <div key={post.id} className="mt-6 w-full flex justify-center">
         <div className="p-4 shadow-md rounded-md w-full lg:w-auto flex items-center gap-x-4 py-2">
-          <h5 className="text-lg font-medium text-gray-900">{post.fields.Device}</h5>
+          <h5 className="text-lg font-medium text-ccDarkBlue">{post.fields.Device}</h5>
           <a
           href={documentUrl}
           target="_blank"
@@ -81,13 +81,13 @@ const SearchBar = () => {
             value={lotNo}
             onChange={handleInputChange}
             onKeyDown={handleKeyDown}
-            className="block w-full rounded-none rounded-l-md border-0 py-1.5 pl-10 text-gray-900 ring-1 ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-ccDarkBlue sm:text-sm sm:leading-6"
+            className="block w-full rounded-none rounded-l-md border-0 py-1.5 pl-10 text-ccDarkBlue ring-1 ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-ccDarkBlue sm:text-sm sm:leading-6"
           />
         </div>
         <button
           type="button"
           onClick={handleSearch}
-          className="rounded-none rounded-r-md relative -ml-px inline-flex items-center gap-x-1.5 px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-gray-300 hover:bg-gray-50"
+          className="rounded-none rounded-r-md relative -ml-px inline-flex items-center gap-x-1.5 px-3 py-2 text-sm font-semibold text-ccDarkBlue ring-1 ring-gray-300 bg-gray-50"
         >
           <MagnifyingGlassIcon aria-hidden="true" className="-ml-0.5 h-5 w-5 text-gray-400" />
           Search
