@@ -1,4 +1,5 @@
 import teamPhoto from '../../../assets/images/teamPhoto.jpg'
+import ContactHeavy from '../../common/ContactButtons/ContactHeavy'
 
 export default function Hero() {
   return (
@@ -18,15 +19,7 @@ export default function Hero() {
               At CC Diagnostics, we are dedicated to pushing the boundaries of medical technology to improve cervical cancer detection. With a strong commitment to innovation and patient care, we strive to make a positive impact on women's health.
               </p>
               <div className="mt-10 flex items-center gap-x-6">
-                <a
-                  href="#"
-                  className="rounded-md bg-ccDarkBlue px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-ccDarkBlue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ccDarkBlue"
-                >
-                  Get started
-                </a>
-                <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-                  Learn more <span aria-hidden="true">→</span>
-                </a>
+           <ContactHeavy/>
               </div>
             </div>
             <img

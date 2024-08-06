@@ -1,4 +1,6 @@
 import Airtable from "../../common/Airtable/Airtable";
+import ContactHeavy from "../../common/ContactButtons/ContactHeavy";
+import ContactLight from "../../common/ContactButtons/ContactLight";
 
 const partnerLogo = (partner) => {
 
@@ -27,15 +29,7 @@ export default function Partners() {
                 scelerisque amet ullamcorper eu enim et fermentum, augue.
               </p>
               <div className="mt-8 flex items-center gap-x-6">
-                <a
-                  href="#"
-                  className="rounded-md bg-ccDarkBlue px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-ccDarkBlue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ccDarkBlue"
-                >
-                  Contact Us
-                </a>
-                <a href="#" className="text-sm font-semibold text-gray-900">
-                  Contact us <span aria-hidden="true">&rarr;</span>
-                </a>
+                <ContactHeavy/>
               </div>
             </div>
             <div className="mx-auto grid w-full max-w-xl grid-cols-2 items-center gap-y-12 sm:gap-y-14 lg:mx-0 lg:max-w-none lg:pl-8">
