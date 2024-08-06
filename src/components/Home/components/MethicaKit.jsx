@@ -1,6 +1,7 @@
 import { ArrowTrendingUpIcon, BeakerIcon, LifebuoyIcon, NewspaperIcon, PhoneIcon, ShieldCheckIcon } from '@heroicons/react/24/outline'
 
 import Methica_CC_prototype_2 from '../../../../src/assets/images/Methica_CC_prototype_2.jpg'
+import ContactLight from '../../common/ContactButtons/ContactLight'
 
 const supportLinks = [
   {
@@ -63,9 +64,7 @@ export default function MethicaKit() {
                 <p className="mt-4 text-base text-gray-500">{link.description}</p>
               </div>
               <div className="rounded-bl-2xl rounded-br-2xl bg-gray-50 p-6 md:px-8">
-                <a href={link.href} className="text-base font-medium text-ccDarkBlue hover:text-ccLightBlue">
-                  Contact us<span aria-hidden="true"> &rarr;</span>
-                </a>
+           <ContactLight/>
               </div>
             </div>
           ))}

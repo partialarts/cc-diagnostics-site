@@ -1,3 +1,5 @@
+import ContactLight from "../../common/ContactButtons/ContactLight";
+
   
   export default function Mission() {
     return (
@@ -31,9 +33,7 @@
                 </div>
               </div>
               <div className="mt-10 flex">
-                <a href="#" className="text-base font-semibold leading-7 text-ccDarkBlue">
-                  Contact Us <span aria-hidden="true">&rarr;</span>
-                </a>
+               <ContactLight/>
               </div>
             </div>
           </div>
