@@ -31,18 +31,18 @@ export default function MethicaKit() {
   return (
     <div className="bg-white">
       {/* Header */}
-      <div className="relative bg-gray-800 pb-32">
-        <div className="absolute inset-0">
+      <div className="relative bg-white pb-32">
+        <div className="absolute inset-0 opacity-50">
           <img
             alt="Methica Kit"
             src={Methica_CC_prototype_2}
             className="h-full w-full object-cover"
           />
-          <div aria-hidden="true" className="absolute inset-0 bg-gray-800 mix-blend-multiply" />
+          <div aria-hidden="true" className="absolute inset-0 bg-ccDarkBlue mix-blend-screen backdrop-blur-sm	" />
         </div>
         <div className="relative mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
-          <h1 className="text-4xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl">Methica CC Kit</h1>
-          <p className="mt-6 text-xl text-gray-300 text-center">
+          <h1 className="text-4xl font-bold tracking-tight text-black md:text-5xl lg:text-6xl">Methica CC Kit</h1>
+          <p className="mt-6 text-xl text-black text-center">
           Revolutionary screening technology detecting cervical cancer early using novel epigenetic markers.
           </p>
         </div>
