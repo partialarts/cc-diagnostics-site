@@ -4,6 +4,7 @@ import Tabs from '../Products/components/Tabs';
 import Flow from '../Products/components/Flow';
 import FullTabs from '../Products/components/FullTabs';
 import SearchCTA from '../SearchDocs/SearchCTA';
+import Accordion from './components/Accordian';
 
 function Products() {
     return (
@@ -11,6 +12,7 @@ function Products() {
             <SearchCTA/>
             <Info />
             {/* <FullTabs /> */}
+            {/* <Accordion/> */}
             <Tabs />
             <Flow />
         </>

@@ -80,7 +80,7 @@ export default function Info() {
             <img
               alt="Methica CC Prototype"
               src={Methica_CC_prototype_2}
-              className="aspect-[3/2] object-cover object-right scale-125 -translate-x-1/4 lg:aspect-auto lg:h-full lg:w-full"
+              className="aspect-[3/2] object-cover object-right scale-150 -translate-x-1/4 lg:aspect-auto lg:h-full lg:w-full"
             />
           </div>
         </div>
