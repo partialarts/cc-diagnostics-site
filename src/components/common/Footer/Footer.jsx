@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "../../../assets/images/logo.png";
 import Airtable from "../../common/Airtable/Airtable";
+import { PhoneIcon } from "@heroicons/react/24/outline";
 
 const navigation = {
   siteMap: [
@@ -88,7 +89,7 @@ const contact = (contact) => {
           // href={contact.href}
           className="text-sm leading-6 text-gray-600"
         >
-          {contact.fields.info}
+       {contact.fields.info}
         </p>
       </li>
     </ul>
