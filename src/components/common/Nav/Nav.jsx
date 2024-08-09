@@ -56,9 +56,7 @@ const Header = () => {
                     >
                         News
                     </NavLink>
-                    <NavLink to="/contact">
                         <ContactHeavy />
-                    </NavLink>
                 </div>
                 <div className="flex lg:hidden">
                     <button
@@ -135,12 +133,7 @@ const Header = () => {
                                         >
                                             News
                                         </NavLink>
-                                        <NavLink to="/contact">
-                                            <button
-      className="rounded-md bg-ccDarkBlue px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-ccLightBlue hover:text-ccDarkBlue" onClick={closeMenu}>
-                                                Contact
-                                            </button>
-                                        </NavLink>
+                                        <ContactHeavy/>
                                     </div>
                                 </div>
                             </div>
