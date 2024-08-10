@@ -44,7 +44,7 @@ const SearchBar = () => {
 
     return (
       <div key={post.id} className="mt-6 w-full flex justify-center">
-        <div className="p-4 shadow-md rounded-md w-full lg:w-auto flex items-center gap-x-4 py-2">
+        <div className="p-4 shadow-md rounded-md w-full lg:w-auto flex items-center gap-x-4 py-2 bg-white">
           <h5 className="text-lg font-medium text-gray-900">{post.fields.Device}</h5>
           <a
             href={documentUrl}

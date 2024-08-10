@@ -125,7 +125,7 @@ export default function Footer() {
               ))}
             </div>
             <div className="text-sm text-left leading-6 text-gray-600">
-              Already purchased? find your documentation here
+              Already purchased? Find your documentation here
             <SearchBar/>
             </div>
           </div>
