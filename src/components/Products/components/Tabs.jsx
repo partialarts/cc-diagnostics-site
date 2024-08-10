@@ -1,6 +1,5 @@
 import { Fragment, useEffect, useState } from 'react';
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/react';
-import Airtable from '../../common/Airtable/Airtable';
 import airtableBase from '../../../utils/airtableapi';
 
 export default function Tabs() {
@@ -16,7 +15,7 @@ export default function Tabs() {
         {
           name: item.fields.Title || "Feature", // Default name if not provided
           description: item.fields.Features || "No description available.", // Default description if not provided
-          imageSrc: item.fields.Image[0]?.url || "", // Ensure the image exists
+          imageSrc: (item.fields.Image && item.fields.Image[0]?.url) || "", // Ensure the image exists
           imageAlt: item.fields.Title || "Image", // Using the title as alt text
         },
       ],
@@ -116,8 +115,12 @@ const fetchAirtableRecords = async () => {
       .select({ view: 'Grid view' })
       .eachPage((records, fetchNextPage) => {
         const formattedRecords = records.map((record) => record._rawJson);
-        resolve(formattedRecords); // Resolve with formatted records
-        fetchNextPage();
+        if (formattedRecords.length > 0) {
+          resolve(formattedRecords); // Resolve with formatted records
+        } else {
+          resolve([]); // Resolve with an empty array if no records are found
+        }
+        fetchNextPage(); // Fetch next page
       }, (error) => {
         if (error) {
           reject(error); // Reject if there's an error
