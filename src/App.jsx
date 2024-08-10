@@ -11,6 +11,7 @@ import Contact from './components/Contact/Contact';
 import Articles from './components/News/components/Articles';
 import IndividualArticles from './components/News/IndvidualNewsItems/IndividualArticles';
 
+
 function App() {
   return (
     <Router>
