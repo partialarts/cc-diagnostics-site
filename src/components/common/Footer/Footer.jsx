@@ -2,6 +2,7 @@ import React from "react";
 import logo from "../../../assets/images/logo.png";
 import Airtable from "../../common/Airtable/Airtable";
 import { PhoneIcon } from "@heroicons/react/24/outline";
+import SearchBar from "../../SearchDocs/SearchBar";
 
 const navigation = {
   siteMap: [
@@ -122,6 +123,10 @@ export default function Footer() {
                   <item.icon aria-hidden="true" className="h-6 w-6" />
                 </a>
               ))}
+            </div>
+            <div className="text-sm text-left leading-6 text-gray-600">
+              Already purchased? find your documentation here
+            <SearchBar/>
             </div>
           </div>
           <div className="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
