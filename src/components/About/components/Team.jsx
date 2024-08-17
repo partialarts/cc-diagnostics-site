@@ -9,7 +9,7 @@ const teamMember = (teamMember) => {
         alt={teamMember.fields.Name} className="mx-auto h-56 w-56 rounded-full" />
       <h3 className="mt-6 text-base font-semibold leading-7 tracking-tight text-ccDarkBlue">{teamMember.fields.Name}</h3>
       <p className="text-sm leading-6 text-ccDarkBlue">{teamMember.fields.Role}</p>
-      <p className="text-sm leading-6 text-gray-600">{teamMember.fields.Description}</p>
+      <p className="text-sm leading-6 text-gray-600 text-justify">{teamMember.fields.Description}</p>
       <ul role="list" className="mt-6 flex justify-center gap-x-6">
         {/* <li>
             <a href={person.xUrl} className="text-gray-400 hover:text-gray-500">
