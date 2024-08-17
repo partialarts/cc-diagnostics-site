@@ -6,7 +6,7 @@ const teamMember = (teamMember) => {
 
     <li key={teamMember.id}>
       <img src={teamMember.fields.Photo && teamMember.fields.Photo.length > 0 ? teamMember.fields.Photo[0].url : placeholder}
-        alt={teamMember.fields.Name} className="mx-auto h-56 w-56 rounded-full" />
+        alt={teamMember.fields.Name} className="mx-auto h-56 w-56 rounded-full object-cover" />
       <h3 className="mt-6 text-base font-semibold leading-7 tracking-tight text-ccDarkBlue">{teamMember.fields.Name}</h3>
       <p className="text-sm leading-6 text-ccDarkBlue">{teamMember.fields.Role}</p>
       <p className="text-sm leading-6 text-gray-600 text-justify">{teamMember.fields.Description}</p>
