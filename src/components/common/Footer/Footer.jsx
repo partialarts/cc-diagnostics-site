@@ -60,6 +60,20 @@ const navigation = {
         </svg>
       ),
     },
+    {
+      name: "YouTube",
+      href: "https://www.youtube.com/channel/your-channel-id",  // Replace with the actual URL
+      icon: (props) => (
+        <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
+          <path
+            fillRule="evenodd"
+            d="M23.498 6.186c-.273-1.031-1.081-1.84-2.112-2.113C19.437 3.5 12 3.5 12 3.5s-7.437 0-9.386.573C1.584 4.346.775 5.155.502 6.186.002 8.06 0 12 0 12s.002 3.94.502 5.814c.273 1.031 1.082 1.84 2.112 2.113C4.563 20.5 12 20.5 12 20.5s7.437 0 9.386-.573c1.031-.273 1.84-1.082 2.112-2.113.5-1.874.502-5.814.502-5.814s-.002-3.94-.502-5.814zM9.75 15.067V8.933L15.5 12l-5.75 3.067z"
+            clipRule="evenodd"
+          />
+        </svg>
+      ),
+    },
+    
   ],
 };
 
