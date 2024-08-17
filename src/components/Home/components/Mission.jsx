@@ -33,7 +33,9 @@ import women from "../../../assets/images/women.png"
                 </div>
               </div>
               <div className="mt-10 flex">
-               <ContactLight/>
+              <a href="#methicaKit" className="text-sm font-semibold leading-6 text-cc-DarkBlue hover:text-ccLightBlue">
+        Methica CC <span aria-hidden="true">→</span>
+      </a>
               </div>
             </div>
           </div>

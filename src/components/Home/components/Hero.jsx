@@ -32,7 +32,7 @@ export default function Hero() {
               >
                 Contact Us
               </a>
-              <a href="/contact" className="text-sm font-semibold leading-6 text-white hover:text-ccLightBlue">
+              <a href="#stats" className="text-sm font-semibold leading-6 text-white hover:text-ccLightBlue">
                 learn more <span aria-hidden="true">→</span>
               </a>
             </div>

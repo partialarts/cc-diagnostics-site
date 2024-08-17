@@ -29,9 +29,9 @@ const supportLinks = [
 
 export default function MethicaKit() {
   return (
-    <div className="bg-white">
+    <div  id="#methicaKit" className="bg-ccAliceBlue">
       {/* Header */}
-      <div className="relative bg-white pb-32">
+      <div className="relative bg-white pb-32"> 
         <div className="absolute inset-0 opacity-50">
           <img
             alt="Methica Kit"
@@ -49,7 +49,8 @@ export default function MethicaKit() {
       </div>
 
       {/* Overlapping cards */}
-      <section aria-labelledby="contact-heading" className="relative z-10 mx-auto -mt-32 max-w-7xl px-6 pb-32 lg:px-8">
+      <section aria-labelledby="contact-heading" className="relative z-10 mx-auto -mt-32 max-w-7xl px-6 pb-6 lg:px-8">
+      {/* changed the pb-32 for one central button taking you to the product page */}
         <h2 id="contact-heading" className="sr-only">
           Contact us
         </h2>
@@ -64,12 +65,17 @@ export default function MethicaKit() {
                 <p className="mt-4 text-base text-gray-500">{link.description}</p>
               </div>
               <div className="rounded-bl-2xl rounded-br-2xl bg-gray-50 p-6 md:px-8">
-           <ContactLight/>
+           {/* <ContactLight/> */}
               </div>
             </div>
           ))}
         </div>
       </section>
+      <div className='flex justify-center items-center'>
+      <a href="/products" className="relative mx-auto max-w-7xl px-6 py-12 sm:py-12 lg:px-8 text-sm font-semibold leading-6 text-cc-DarkBlue hover:text-ccLightBlue">
+        Products <span aria-hidden="true">→</span>
+      </a>
+      </div>
     </div>
   )
 }
