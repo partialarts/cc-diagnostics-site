@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@formspark/use-formspark": "^0.1.39",
     "@headlessui/react": "^2.1.2",
     "@heroicons/react": "^2.1.5",
     "@tailwindcss/aspect-ratio": "^0.4.2",
