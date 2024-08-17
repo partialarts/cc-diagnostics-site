@@ -5,6 +5,12 @@ import logo_erdf2014 from "../../../assets/images/logo_erdf2014.png"
 const partnerLogo = (partner) => {
 
   return (
+    <a
+    href={partner.fields.Site}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-sm leading-6 text-gray-600 hover:text-ccLightBlue"
+  >
 <img
 key={partner.id}
 src={partner.fields.Logo && partner.fields.Logo.length > 0 ? partner.fields.Logo[0].url : placeholder} 
@@ -13,6 +19,7 @@ width={105}
 height={48}
 className="max-h-24 w-full object-contain object-center shadow-md"
 />
+</a>
   );
 };
 
