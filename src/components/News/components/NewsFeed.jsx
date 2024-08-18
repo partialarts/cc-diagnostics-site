@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Airtable from "../../common/Airtable/Airtable";
 import dayjs from "dayjs";
 import placeholder from "../../../assets/images/placeholder.png";
+import { Link } from 'react-router-dom';
 import NFSkeleton from "./NFSkeleton";
 
 export default function NewsFeed() {
@@ -17,7 +18,7 @@ export default function NewsFeed() {
   }, []);
 
   const renderNewsItem = (post) => {
-    const formattedDate = dayjs(post.createdTime).format("D MMM, YYYY");
+    const formattedDate = dayjs(post.fields.Published).format("D MMM, YYYY");
 
     return (
       <article
@@ -39,13 +40,13 @@ export default function NewsFeed() {
         
         <div className="group relative max-w-xl">
           <h3 className="mt-0 text-lg font-semibold leading-6 text-ccDarkBlue group-hover:text-ccLightBlue text-left">
-            <a href={post.fields.href}>
+          <Link to={`/article/${post.id}`} state={{ post }}> {/* Pass post data in state */}
               <span className="absolute inset-0 pointer-events-none" />
               {post.fields.Title}
-            </a>
+            </Link>
           </h3>
           <div className="mt-3 flex items-center gap-x-4 text-xs">
-            <time dateTime={post.createdTime} className="text-gray-500">
+            <time dateTime={post.fields.Published} className="text-gray-500">
               {formattedDate}
             </time>
           </div>
