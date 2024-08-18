@@ -8,8 +8,7 @@ import Products from './components/Products/Products';
 import About from './components/About/About';
 import News from './components/News/News';
 import Contact from './components/Contact/Contact';
-import Articles from './components/News/components/Articles';
-import IndividualArticles from './components/News/IndvidualNewsItems/IndividualArticles';
+import IndividualArticle from './components/News/components/IndividualArticle';
 
 
 function App() {
@@ -23,8 +22,7 @@ function App() {
         <Route path="about" element={<About />} />
         <Route path="news" element={<News />} />
         <Route path="contact" element={<Contact />} />
-        <Route path="news/articles" element={<Articles />} />
-        <Route path="article/:id" element={<IndividualArticles />} />
+        <Route path="article/:id" element={<IndividualArticle />} />
       </Routes>
       <Footer />
     </Router>

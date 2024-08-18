@@ -125,11 +125,12 @@ import React from "react";
 import Airtable from "../../common/Airtable/Airtable";
 import dayjs from 'dayjs';
 import placeholder from '../../../assets/images/placeholder.png';
+import { Link, useNavigation } from 'react-router-dom';
 
 export default function FeaturedNews() {
 
   const renderNewsItem = (post) => {
-    const formattedDate = dayjs(post.createdTime).format("D MMM, YYYY");
+    const formattedDate = dayjs(post.fields.Published).format("D MMM, YYYY");
 
     return (
     <div className="lg:w-full"> 
@@ -144,18 +145,17 @@ export default function FeaturedNews() {
       </div>
       <div className="max-w-xl">
       <div className="mt-5 flex items-center gap-x-4 text-xs">
-                    <time dateTime={post.createdTime} className="text-gray-500">
+                    <time dateTime={post.fields.Published} className="text-gray-500">
                       {formattedDate}
                     </time>
                     </div>
         <div className="group   
  relative">
           <h3 className="mt-3 text-lg font-semibold leading-6 text-ccDarkBlue group-hover:text-ccLightBlue">
-            <a href={post.fields.href}>   
-
+          <Link to={`/article/${post.id}`} state={{ post }}> {/* Pass post data in state */}
               <span className="absolute inset-0 pointer-events-none" />
               {post.fields.Title}
-            </a>
+            </Link>
           </h3>
           <p className="mt-3 line-clamp-3 text-sm leading-6 text-gray-600">{post.fields.Description}</p>
         </div>
