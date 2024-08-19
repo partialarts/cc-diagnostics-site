@@ -4,10 +4,10 @@ import ContactHeavy from '../../common/ContactButtons/ContactHeavy'
 export default function Hero() {
   return (
     <div className="bg-white">
-      <div className="relative isolate overflow-hidden bg-gradient-to-b from-ccDarkBlue/20 pt-14">
+      <div className="relative isolate overflow-hidden bg-gradient-to-b from-ccLightBlue/20 pt-14">
         <div
           aria-hidden="true"
-          className="absolute inset-y-0 right-1/2 -z-10 -mr-96 w-[200%] origin-top-right skew-x-[-30deg] bg-white shadow-xl shadow-ccDarkBlue/10 ring-1 ring-ccDarkBlue sm:-mr-80 lg:-mr-96"
+          className="absolute inset-y-0 right-1/2 -z-10 -mr-96 w-[200%] origin-top-right skew-x-[-30deg] bg-white shadow-xl shadow-ccLightBlue/10 ring-1 ring-ccLightBlue sm:-mr-80 lg:-mr-96"
         />
         <div className="mx-auto max-w-7xl px-6 py-32 sm:py-40 lg:px-8">
           <div className="mx-auto max-w-2xl lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-x-16 lg:gap-y-6 xl:grid-cols-1 xl:grid-rows-1 xl:gap-x-8">
