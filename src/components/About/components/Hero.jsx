@@ -20,6 +20,9 @@ export default function Hero() {
               </p>
               <div className="mt-10 flex items-center gap-x-6">
            <ContactHeavy/>
+           <a href="#team" className="text-sm font-semibold leading-6 text-cc-DarkBlue hover:text-ccLightBlue">
+        Our Team <span aria-hidden="true">→</span>
+      </a>
               </div>
             </div>
             <img
