@@ -7,7 +7,7 @@ const stats = [
   export default function Stats() {
     return (
       <>
-        <div className="bg-white px-2 py-6 sm:py-16 lg:px-6">
+        <div id="stats" className="bg-white px-2 py-6 sm:py-16 lg:px-6">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-4xl font-bold tracking-tight text-ccDarkBlue sm:text-6xl">
               Detect Cancer Early with Advanced Technology
