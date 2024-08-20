@@ -29,7 +29,7 @@ const supportLinks = [
 
 export default function MethicaKit() {
   return (
-    <div  id="#methicaKit" className="bg-ccAliceBlue">
+    <div  id="methicaKit" className="bg-ccAliceBlue">
       {/* Header */}
       <div className="relative bg-white pb-32"> 
         <div className="absolute inset-0 opacity-50">

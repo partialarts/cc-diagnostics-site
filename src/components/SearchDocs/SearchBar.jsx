@@ -53,17 +53,17 @@ const SearchBar = () => {
             className="ml-auto flex items-center gap-x-2 text-blue-600 hover:text-blue-800"
           >
             <FolderOpenIcon className="h-6 w-6 text-gray-600" />
-            View
+            Open
           </a>
 
-          <a
+          {/* <a
             href={documentUrl}
             download={documentName}
             className="ml-auto flex items-center gap-x-2 text-blue-600 hover:text-blue-800"
           >
             <FolderArrowDownIcon className="h-6 w-6 text-gray-600" />
             Download
-          </a>
+          </a> */}
         </div>
       </div>
     );

@@ -38,10 +38,13 @@ const teamMember = (teamMember) => {
 
 export default function Team() {
   return (
-    <div className="bg-white py-32">
+    <div id="team" className="bg-white py-32">
       <div className="mx-auto max-w-7xl px-6 text-center lg:px-8">
         <div className="mx-auto max-w-2xl">
-          <h2 className="text-3xl font-bold tracking-tight text-ccDarkBlue sm:text-4xl">Meet our team</h2>
+        <h2 className="text-3xl font-bold tracking-tight text-ccDarkBlue sm:text-4xl relative p-3">
+  Meet our team
+  {/* <div className="absolute inset-x-0 bottom-0 h-[2px] bg-gradient-to-r from-transparent via-ccLightBlue to-transparent"></div> */}
+</h2>
           <p className="mt-4 text-lg leading-8 text-gray-600">
             We’re a dynamic group of individuals who are passionate about what we do.
           </p>
