@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "../../../assets/images/logo.png";
 import Airtable from "../../common/Airtable/Airtable";
-import { PhoneIcon } from "@heroicons/react/24/outline";
+import { PhoneIcon, EnvelopeIcon, MapPinIcon } from "@heroicons/react/24/outline";
 import SearchBar from "../../SearchDocs/SearchBar";
 
 const navigation = {
@@ -38,48 +38,73 @@ const navigation = {
         </svg>
       ),
     },
-    {
-      name: "YouTube",
-      href: "https://www.youtube.com/channel/your-channel-id", // Replace with the actual URL
-      icon: (props) => (
-        <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
-          <path
-            fillRule="evenodd"
-            d="M23.498 6.186c-.273-1.031-1.081-1.84-2.112-2.113C19.437 3.5 12 3.5 12 3.5s-7.437 0-9.386.573C1.584 4.346.775 5.155.502 6.186.002 8.06 0 12 0 12s.002 3.94.502 5.814c.273 1.031 1.082 1.84 2.112 2.113C4.563 20.5 12 20.5 12 20.5s7.437 0 9.386-.573c1.031-.273 1.84-1.082 2.112-2.113.5-1.874.502-5.814.502-5.814s-.002-3.94-.502-5.814zM9.75 15.067V8.933L15.5 12l-5.75 3.067z"
-            clipRule="evenodd"
-          />
-        </svg>
-      ),
-    },
+    // {
+    //   name: "YouTube",
+    //   href: "https://www.youtube.com/channel/your-channel-id", // Replace with the actual URL
+    //   icon: (props) => (
+    //     <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
+    //       <path
+    //         fillRule="evenodd"
+    //         d="M23.498 6.186c-.273-1.031-1.081-1.84-2.112-2.113C19.437 3.5 12 3.5 12 3.5s-7.437 0-9.386.573C1.584 4.346.775 5.155.502 6.186.002 8.06 0 12 0 12s.002 3.94.502 5.814c.273 1.031 1.082 1.84 2.112 2.113C4.563 20.5 12 20.5 12 20.5s7.437 0 9.386-.573c1.031-.273 1.84-1.082 2.112-2.113.5-1.874.502-5.814.502-5.814s-.002-3.94-.502-5.814zM9.75 15.067V8.933L15.5 12l-5.75 3.067z"
+    //         clipRule="evenodd"
+    //       />
+    //     </svg>
+    //   ),
+    // },
   ],
 };
 
 const Partners = (partner) => {
   return (
-    <ul role="list" className="mt-6 space-y-4">
-      <li key={partner.id}>
+    <ul role="list" className="mt-2 space-y-2 flex flex-wrap justify-start border-l-2 border-ccLightBlue/20 bg-white/50">
+      <li key={partner.id} className="flex items-center justify-start w-20 h-20 rounded-lg p-2">
         <a
           href={partner.fields.Site}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-sm leading-6 text-gray-600 hover:text-ccLightBlue"
+          className="flex items-center justify-start text-xs leading-4 text-gray-600 hover:text-ccLightBlue space-x-2"
         >
-          <h6>{partner.fields.Partner}</h6>
+          <img
+            key={partner.id}
+            src={
+              partner.fields.Logo && partner.fields.Logo.length > 0
+                ? partner.fields.Logo[0].url
+                : placeholder
+            }
+            alt={partner.fields.Partner}
+            className="max-h-8 w-auto object-contain"
+          />
+          <h6 className="text-xs">{partner.fields.Partner}</h6>
         </a>
       </li>
     </ul>
   );
 };
 
+
+
+
+
+
+
+
+
+const methodIcons = {
+  Phone: <PhoneIcon className="h-5 w-5 text-ccDarkBlue" aria-hidden="true" />,
+  Email: <EnvelopeIcon className="h-5 w-5 text-ccDarkBlue" aria-hidden="true" />,
+  Address: <MapPinIcon className="h-5 w-5 text-ccDarkBlue" aria-hidden="true" />,
+};
+
 const ContactInfo = (contact) => {
   return (
     <ul role="list" className="mt-6 space-y-4">
       <li key={contact.id}>
-        <p className="text-sm leading-6 text-gray-600">{contact.fields.info}</p>
+        <p className="text-sm leading-6 text-gray-600">{contact.fields.Method}: {contact.fields.info}</p>
       </li>
     </ul>
   );
-};
+};  
+
 
 export default function Footer() {
   return (
@@ -107,12 +132,6 @@ export default function Footer() {
                   <item.icon aria-hidden="true" className="h-6 w-6" />
                 </a>
               ))}
-            </div>
-            <p className="text-sm text-left leading-6 text-gray-600">
-              Already purchased? Find your documentation here:
-            </p>
-            <div className="mt-4">
-              <SearchBar />
             </div>
           </div>
           <div className="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
@@ -159,6 +178,13 @@ export default function Footer() {
             </div>
           </div>
         </div>
+        <p className="mt-6 text-sm text-left leading-6 text-gray-600">
+              Documentation Search
+            </p>
+            <div className="mt-4 max-w-xs">
+  <SearchBar />
+</div>
+
         <div className="mt-16 border-t border-ccLightBlue/10 pt-8 sm:mt-20 lg:mt-24">
           <p className="text-xs leading-5 text-gray-400">
             &copy; 2024 CC Diagnostics
