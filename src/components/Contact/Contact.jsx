@@ -274,7 +274,7 @@ export default function ContactForm() {
                   <div className="mt-2.5">
                     <input
                       id="lastName"
-                      name="name"
+                      name="lastName"
                       value={formData.lastName}
                       onChange={handleChange}
                       required
