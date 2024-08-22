@@ -1,15 +1,15 @@
 import Airtable from "../../common/Airtable/Airtable";
 import placeholder from "../../../assets/images/placeholder.png";
 
-const teamMember = (teamMember) => {
+const renderAdvisor = (advisor) => {
 
   return (
 
-    <li key={teamMember.id}>
-      <img src={teamMember.fields.Photo && teamMember.fields.Photo.length > 0 ? teamMember.fields.Photo[0].thumbnails.large.url : placeholder}
-        alt={teamMember.fields.Name} className="mx-auto h-56 w-56 rounded-full object-cover" />
-      <h3 className="mt-6 text-base font-semibold leading-7 tracking-tight text-ccDarkBlue">{teamMember.fields.Name}</h3>
-      <p className="text-sm leading-6 text-ccDarkBlue">{teamMember.fields.Role}</p>
+    <li key={advisor.id}>
+      <img src={advisor.fields.Photo && advisor.fields.Photo.length > 0 ? advisor.fields.Photo[0].thumbnails.large.url : placeholder}
+        alt={advisor.fields.Name} className="mx-auto h-56 w-56 rounded-full object-cover" />
+      <h3 className="mt-6 text-base font-semibold leading-7 tracking-tight text-ccDarkBlue">{advisor.fields.Name}</h3>
+      <p className="text-sm leading-6 text-ccDarkBlue">{advisor.fields.Role}</p>
       <ul role="list" className=" flex justify-center gap-x-6 p-6">
         {/* <li>
             <a href={person.xUrl} className="text-gray-400 hover:text-gray-500">
@@ -20,7 +20,7 @@ const teamMember = (teamMember) => {
             </a>
           </li> */}
         <li>
-          <a href={teamMember.fields.LinkedIn[0].url} className="text-ccDarkBlue hover:text-ccLightBlue">
+          <a href={advisor.fields.LinkedIn[0].url} className="text-ccDarkBlue hover:text-ccLightBlue">
             <span className="sr-only">LinkedIn</span>
             <svg fill="currentColor" viewBox="0 0 20 20" aria-hidden="true" className="h-5 w-5">
               <path
@@ -32,23 +32,20 @@ const teamMember = (teamMember) => {
           </a>
         </li>
       </ul>
-      <p className="text-sm leading-6 text-gray-600 text-justify">{teamMember.fields.Description}</p>
+      <p className="text-sm leading-6 text-gray-600 text-justify">{advisor.fields.Description}</p>
     </li>
   );
 };
 
-export default function Team() {
+export default function Advisors() {
   return (
-    <div id="team" className="bg-white py-0">
+    <div id="team" className="bg-white py-32">
       <div className="mx-auto max-w-7xl px-6 text-center lg:px-8">
         <div className="mx-auto max-w-2xl">
         <h2 className="text-3xl font-bold tracking-tight text-ccDarkBlue sm:text-4xl relative p-3">
-  Meet our team
+  Our Advisors
   {/* <div className="absolute inset-x-0 bottom-0 h-[2px] bg-gradient-to-r from-transparent via-ccLightBlue to-transparent"></div> */}
 </h2>
-          <p className="mt-4 text-lg leading-8 text-gray-600">
-            We’re a dynamic group of individuals who are passionate about what we do.
-          </p>
         </div>
         <ul
           role="list"
@@ -59,9 +56,9 @@ export default function Team() {
 <Airtable
           tableName="Team"
           view="Grid view"
-          renderItem={(member) => {
-            if (member.fields.Category === 'Team member') {
-              return teamMember(member);
+          renderItem={(advisor) => {
+            if (advisor.fields.Category === 'Advisor') {
+              return renderAdvisor(advisor);
             }
             return null;
           }}
