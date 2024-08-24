@@ -105,6 +105,19 @@ const ContactInfo = (contact) => {
   );
 };  
 
+const Policy = (Policy) => {
+  return (
+    <ul role="list" className="mt-6 space-y-4">
+      <li key={Policy.id}>
+      <a href={Policy.fields.Document[0].url}
+            target="_blank"
+            rel="noopener noreferrer">
+        <p className="text-sm leading-6 text-gray-600">{Policy.fields.Policy}</p>
+        </a>
+      </li>
+    </ul>
+  );
+};  
 
 export default function Footer() {
   return (
@@ -114,9 +127,9 @@ export default function Footer() {
       </h2>
       <div className="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32">
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
-          <div className="space-y-8">
+          <div className="space-y-2">
             <img alt="CC Diagnostics Logo" src={logo} className="h-7" />
-            <p className="text-sm text-left leading-6 text-gray-600">
+            <p className="text-sm text-left leading-6 text-ccDarkBlue text-bold">
               Revolutionising cancer diagnostics
             </p>
             <div className="flex space-x-6 align-center justify-center">
@@ -126,7 +139,7 @@ export default function Footer() {
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-ccDarkBlue hover:text-ccLightBlue align-center justify-center"
+                  className="text-ccDarkBlue hover:text-ccLightBlue align-center justify-center space-y-6"
                 >
                   <span className="sr-only">{item.name}</span>
                   <item.icon aria-hidden="true" className="h-6 w-6" />
@@ -164,7 +177,7 @@ export default function Footer() {
                 />
               </div>
             </div>
-            <div className="pl-8">
+            {/* <div className="pl-8">
               <h3 className="text-sm font-semibold leading-6 text-ccDarkBlue">
                 Partners
               </h3>
@@ -175,7 +188,17 @@ export default function Footer() {
                   renderItem={Partners}
                 />
               </div>
-            </div>
+            </div> */}
+            <div className="mt-10 md:mt-0">
+                <h3 className="text-sm font-semibold leading-6 text-ccDarkBlue">
+                  Policies
+                </h3>
+                <Airtable
+                  tableName="Policies"
+                  view="Grid view"
+                  renderItem={Policy}
+                />
+              </div>
           </div>
         </div>
         <p className="mt-6 text-sm text-left leading-6 text-gray-600">
