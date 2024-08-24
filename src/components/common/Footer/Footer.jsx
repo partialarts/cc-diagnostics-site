@@ -54,40 +54,32 @@ const navigation = {
   ],
 };
 
-const Partners = (partner) => {
-  return (
-    <ul role="list" className="mt-2 space-y-2 flex flex-wrap justify-start border-l-2 border-ccLightBlue/20 bg-white/50">
-      <li key={partner.id} className="flex items-center justify-start w-20 h-20 rounded-lg p-2">
-        <a
-          href={partner.fields.Site}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center justify-start text-xs leading-4 text-gray-600 hover:text-ccLightBlue space-x-2"
-        >
-          <img
-            key={partner.id}
-            src={
-              partner.fields.Logo && partner.fields.Logo.length > 0
-                ? partner.fields.Logo[0].url
-                : placeholder
-            }
-            alt={partner.fields.Partner}
-            className="max-h-8 w-auto object-contain"
-          />
-          <h6 className="text-xs">{partner.fields.Partner}</h6>
-        </a>
-      </li>
-    </ul>
-  );
-};
-
-
-
-
-
-
-
-
+// const Partners = (partner) => {
+//   return (
+//     <ul role="list" className="mt-2 space-y-2 flex flex-wrap justify-start border-l-2 border-ccLightBlue/20 bg-white/50">
+//       <li key={partner.id} className="flex items-center justify-start w-20 h-20 rounded-lg p-2">
+//         <a
+//           href={partner.fields.Site}
+//           target="_blank"
+//           rel="noopener noreferrer"
+//           className="flex items-center justify-start text-xs leading-4 text-gray-600 hover:text-ccLightBlue space-x-2"
+//         >
+//           <img
+//             key={partner.id}
+//             src={
+//               partner.fields.Logo && partner.fields.Logo.length > 0
+//                 ? partner.fields.Logo[0].url
+//                 : placeholder
+//             }
+//             alt={partner.fields.Partner}
+//             className="max-h-8 w-auto object-contain"
+//           />
+//           <h6 className="text-xs">{partner.fields.Partner}</h6>
+//         </a>
+//       </li>
+//     </ul>
+//   );
+// };
 
 const methodIcons = {
   Phone: <PhoneIcon className="h-5 w-5 text-ccDarkBlue" aria-hidden="true" />,
@@ -96,15 +88,36 @@ const methodIcons = {
 };
 
 const ContactInfo = (contact) => {
+  const { Method, info } = contact.fields;
+
   return (
     <ul role="list" className="mt-6 space-y-4">
-      <li key={contact.id}>
-        <p className="text-sm leading-6 text-gray-600">{contact.fields.Method}: {contact.fields.info}</p>
+      <li key={contact.id} className="flex items-center space-x-2">
+        {/* Render the matching icon based on the Method */}
+        <span className="flex items-center justify-center">
+          {methodIcons[Method]}
+        </span>
+        {/* Display the contact information */}
+        <p className="text-sm leading-6 text-gray-600">{info}</p>
       </li>
     </ul>
   );
-};  
+};
 
+
+const Policy = (Policy) => {
+  return (
+    <ul role="list" className="mt-6 space-y-4">
+      <li key={Policy.id}>
+        <a href={Policy.fields.Document[0].url}
+          target="_blank"
+          rel="noopener noreferrer">
+          <p className="text-sm leading-6 text-gray-600">{Policy.fields.Policy}</p>
+        </a>
+      </li>
+    </ul>
+  );
+};
 
 export default function Footer() {
   return (
@@ -114,9 +127,9 @@ export default function Footer() {
       </h2>
       <div className="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32">
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
-          <div className="space-y-8">
+          <div className="space-y-2">
             <img alt="CC Diagnostics Logo" src={logo} className="h-7" />
-            <p className="text-sm text-left leading-6 text-gray-600">
+            <p className="text-sm text-left leading-6 text-ccDarkBlue text-bold">
               Revolutionising cancer diagnostics
             </p>
             <div className="flex space-x-6 align-center justify-center">
@@ -126,7 +139,7 @@ export default function Footer() {
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-ccDarkBlue hover:text-ccLightBlue align-center justify-center"
+                  className="text-ccDarkBlue hover:text-ccLightBlue align-center justify-center space-y-6"
                 >
                   <span className="sr-only">{item.name}</span>
                   <item.icon aria-hidden="true" className="h-6 w-6" />
@@ -134,10 +147,9 @@ export default function Footer() {
               ))}
             </div>
           </div>
-          <div className="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
-            <div className="md:grid md:grid-cols-2 md:gap-8">
-              <div>
-                <h3 className="text-sm font-semibold leading-6 text-ccDarkBlue">
+          <div className="mt-16 grid grid-cols-4 gap-8 xl:col-span-2 xl:mt-0 ">
+          <div className="mt-10 md:mt-0  px-6">
+          <h3 className="text-sm font-semibold leading-6 text-ccDarkBlue">
                   Site Map
                 </h3>
                 <ul role="list" className="mt-6 space-y-4">
@@ -153,8 +165,18 @@ export default function Footer() {
                   ))}
                 </ul>
               </div>
-              <div className="mt-10 md:mt-0">
-                <h3 className="text-sm font-semibold leading-6 text-ccDarkBlue">
+              <div className="mt-10 md:mt-0  px-6">
+              <h3 className="text-sm font-semibold leading-6 text-ccDarkBlue">
+                Policies
+              </h3>
+              <Airtable
+                tableName="Policies"
+                view="Grid view"
+                renderItem={Policy}
+              />
+            </div>
+              <div className="mt-10 md:mt-0 px-6  col-span-2">
+              <h3 className="text-sm font-semibold leading-6 text-ccDarkBlue">
                   Contact
                 </h3>
                 <Airtable
@@ -163,27 +185,14 @@ export default function Footer() {
                   renderItem={ContactInfo}
                 />
               </div>
-            </div>
-            <div className="pl-8">
-              <h3 className="text-sm font-semibold leading-6 text-ccDarkBlue">
-                Partners
-              </h3>
-              <div className="md:grid md:grid-cols-2">
-                <Airtable
-                  tableName="Partners"
-                  view="Grid view"
-                  renderItem={Partners}
-                />
-              </div>
-            </div>
           </div>
         </div>
         <p className="mt-6 text-sm text-left leading-6 text-gray-600">
-              Documentation Search
-            </p>
-            <div className="mt-4 max-w-xs">
-  <SearchBar />
-</div>
+          Documentation Search
+        </p>
+        <div className="mt-4 max-w-xs">
+          <SearchBar />
+        </div>
 
         <div className="mt-16 border-t border-ccLightBlue/10 pt-8 sm:mt-20 lg:mt-24">
           <p className="text-xs leading-5 text-gray-400">
