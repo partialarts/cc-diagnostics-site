@@ -4,43 +4,9 @@ export default function Info() {
   return (
     <>
       <div className="relative bg-white">
-        {/* 
-        
-        Version 1
-        
-        <div className="relative h-80 overflow-hidden bg-white md:absolute md:left-0 md:h-full md:w-1/3 lg:w-1/2">
-          <img
-            alt="Methica CC Prototype"
-            src={Methica_CC_prototype_2}
-            className="h-full w-full object-cover"
-          />
-        </div>
-        <div className="relative mx-auto max-w-7xl py-24 sm:py-32 lg:px-8 lg:py-40">
-          <div className="pl-6 pr-6 md:ml-auto md:w-2/3 md:pl-16 lg:w-1/2 lg:pl-24 lg:pr-0 xl:pl-32">
-            <h2 className="text-base font-semibold leading-7 text-ccLightBlue">Methica CC Kit</h2>
-            <p className="mt-2 text-3xl font-bold tracking-tight text-ccDarkBlue sm:text-4xl">Revolutionising Cancer Diagnostics</p>
-            <p className="mt-6 text-base leading-7 text-gray-600">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et, egestas tempus tellus etiam sed. Quam a
-              scelerisque amet ullamcorper eu enim et fermentum, augue. Aliquet amet volutpat quisque ut interdum
-              tincidunt duis.
-            </p>
-            <div className="mt-8">
-              <a
-                href="#"
-                className="inline-flex rounded-md bg-white/10 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-white/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-              >
-                Contact Us
-              </a>
-            </div>
-          </div>
-        </div> */}
-
-
-{/* version 2 */}
-
         <div className="relative">
           <div className="mx-auto max-w-7xl">
-            <div className="relative z-10 pt-14 lg:w-full lg:max-w-2xl">
+            <div className="relative z-10 pt-14 lg:w-full lg:max-w-2xl py-32 sm:py-40">
               <svg
                 viewBox="0 0 100 100"
                 preserveAspectRatio="none"
@@ -50,7 +16,7 @@ export default function Info() {
                 <polygon points="0,0 90,0 50,100 0,100" />
               </svg>
 
-              <div className="relative px-6 py-32 sm:py-40 lg:px-8 lg:py-56 lg:pr-0">
+              <div className="relative px-6 py-32 sm:py-40 lg:px-8">
                 <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl">
                   <div className="hidden sm:mb-10 sm:flex">
               
@@ -62,13 +28,7 @@ export default function Info() {
                   Superior Diagnostic Methods for Cervical Cancer Detection
                   </p>
                   <div className="mt-10 flex items-center gap-x-6">
-                    {/* <a
-                      href="#"
-                      className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                    >
-                      Get started
-                    </a> */}
-                    <a href="#techspecs" className="text-sm font-semibold leading-6 text-cc-DarkBlue hover:text-ccLightBlue">
+                    <a href="#techspecs" className="text-sm font-semibold leading-6 text-ccDarkBlue hover:text-ccLightBlue">
         Learn More <span aria-hidden="true">→</span>
       </a>
                   </div>
