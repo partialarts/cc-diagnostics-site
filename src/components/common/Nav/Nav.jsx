@@ -37,7 +37,7 @@ const Header = () => {
                         Products
                     </NavLink>
     
-                    <MenuButton className="inline-flex items-center ml-2 p-2 text-sm font-semibold text-gray-900 bg-white rounded-md ring-gray-300 hover:bg-gray-50">
+                    <MenuButton className="inline-flex items-center ml-2 text-sm font-semibold text-gray-900 bg-white rounded-md ring-gray-300 hover:bg-gray-50">
                         <ChevronDownIcon aria-hidden="true" className="h-5 w-5 text-ccLightBlue" />
                     </MenuButton>
                 </div>
