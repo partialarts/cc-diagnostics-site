@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import teamPhoto from "../../assets/images/teamPhoto.jpg";
 import emailjs from "@emailjs/browser";
+import SEO from '../common/SEO';
 
 export default function ContactForm() {
 
@@ -24,6 +25,16 @@ export default function ContactForm() {
   };
 
   return (
+    <>
+       {/* SEO Component */}
+       <SEO 
+       title="Contact Us - CC Diagnostics" 
+       description="Get in touch with CC Diagnostics for any inquiries, support, or information. Fill out our contact form to reach our team and we will get back to you promptly." 
+       keywords="contact, CC Diagnostics, customer support, inquiries, contact form"
+       url="https://www.cc-diagnostics.netlify.app/contact"
+       image="https://www.cc-diagnostics.netlify.app/assets/logo-COHLTM4X.png"  // Using company logo for meta image
+     />
+     
     <div className="relative bg-white">
 
       <div className="lg:absolute lg:inset-0 lg:left-1/2">
@@ -180,5 +191,6 @@ export default function ContactForm() {
         </div>
       </div>
     </div>
+    </>
   );
 }
