@@ -5,9 +5,7 @@ import ContactLight from "../../../components/common/ContactButtons/ContactLight
 export default function Hero() {
 
   return (
-    <div className="bg-black-900">
-
-      <div className="relative isolate overflow-hidden pt-14">
+      <div className="relative isolate overflow-hidden pt-14 py-32 sm:py-40">
         <img
           alt="DNA strand"
           src={DNA}
@@ -39,6 +37,5 @@ export default function Hero() {
           </div>
         </div>
       </div>
-    </div>
   )
 }

@@ -40,7 +40,7 @@ export default function MethicaKit() {
           />
           <div aria-hidden="true" className="absolute inset-0 bg-ccDarkBlue mix-blend-screen backdrop-blur-sm	" />
         </div>
-        <div className="relative mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
+        <div className="relative mx-auto max-w-7xl px-6 py-32 sm:py-40 lg:px-8">
           <h1 className="text-4xl font-bold tracking-tight text-ccDarkBlue md:text-5xl lg:text-6xl">Methica CC Kit</h1>
           <p className="mt-6 text-xl text-gray-900 text-center">
           Revolutionary screening technology detecting cervical cancer early using novel epigenetic markers.
@@ -64,16 +64,13 @@ export default function MethicaKit() {
                 <h3 className="text-xl font-medium text-ccDarkBlue">{link.name}</h3>
                 <p className="mt-4 text-base text-gray-500">{link.description}</p>
               </div>
-              <div className="rounded-bl-2xl rounded-br-2xl bg-gray-50 p-6 md:px-8">
-           {/* <ContactLight/> */}
-              </div>
             </div>
           ))}
         </div>
       </section>
       <div className='flex justify-center items-center'>
       <a href="/products" className="relative mx-auto max-w-7xl px-6 py-12 sm:py-12 lg:px-8 text-sm font-semibold leading-6 text-cc-DarkBlue hover:text-ccLightBlue">
-        Products <span aria-hidden="true">→</span>
+        Learn More <span aria-hidden="true">→</span>
       </a>
       </div>
     </div>

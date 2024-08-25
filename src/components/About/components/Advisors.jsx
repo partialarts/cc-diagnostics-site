@@ -39,7 +39,7 @@ const renderAdvisor = (advisor) => {
 
 export default function Advisors() {
   return (
-    <div id="team" className="bg-white py-32">
+    <div id="team" className="bg-white py-32 sm:py-40">
       <div className="mx-auto max-w-7xl px-6 text-center lg:px-8">
         <div className="mx-auto max-w-2xl">
         <h2 className="text-3xl font-bold tracking-tight text-ccDarkBlue sm:text-4xl relative p-3">
