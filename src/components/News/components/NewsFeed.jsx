@@ -8,17 +8,8 @@ const NewsFeed = () => {
   const [selectedYear, setSelectedYear] = useState(dayjs().year().toString());
   const [years, setYears] = useState([]);
 
-    // Use a ref to track whether the data has already been fetched
-    const isFirstFetch = React.useRef(true);
-
 // Memoized function to handle records fetched from Airtable
 const handleRecordsFetched = useCallback((fetchedPosts) => {
-  if (!isFirstFetch.current) {
-    return; // Prevent the function from running multiple times
-  }
-  isFirstFetch.current = false; // Set to false after the first fetch
-  console.log("Handling records fetched:", fetchedPosts);
-  
 // Extract years from the fetched posts
 const uniqueYears = [...new Set(fetchedPosts.map(post => dayjs(post.fields.Published).year()))];
 const currentYear = dayjs().year();
