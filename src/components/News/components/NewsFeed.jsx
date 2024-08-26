@@ -3,19 +3,10 @@ import Airtable from "../../common/Airtable/Airtable";
 import dayjs from "dayjs";
 import placeholder from "../../../assets/images/placeholder.png";
 import { Link } from 'react-router-dom';
-import NFSkeleton from "./NFSkeleton";
 
 export default function NewsFeed() {
-  const [selectedYear, setSelectedYear] = useState("2024");
-  const [loading, setLoading] = useState(true);
-  const [posts, setPosts] = useState([]);
+  const [selectedYear, setSelectedYear] = useState("2024")
 
-  useEffect(() => {
-    // Simulate loading time
-    setTimeout(() => {
-      setLoading(false);
-    }, 1000);
-  }, []);
 
   const renderNewsItem = (post) => {
     const formattedDate = dayjs(post.fields.Published).format("D MMM, YYYY");
@@ -63,7 +54,7 @@ export default function NewsFeed() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Year filter section */}
         <div className="years lg:col-span-1 lg:sticky lg:top-0 text-left text-xl font-bold tracking-tight text-ccDarkBlue">
-          {["2024", "2023", "2022", "2021"].map((year) => (
+        {["2024", "2023", "2022", "2021"].map((year) => (
             <h2
               key={year}
               className={`lg:p-4 p-8 cursor-pointer hover:text-ccLightBlue ${
