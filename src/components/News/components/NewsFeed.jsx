@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import Airtable from "../../common/Airtable/Airtable";
 import dayjs from "dayjs";
 import placeholder from "../../../assets/images/placeholder.png";
@@ -7,12 +7,13 @@ import { Link } from 'react-router-dom';
 const NewsFeed = () => {
   const [selectedYear, setSelectedYear] = useState(dayjs().year().toString());
   const [years, setYears] = useState([]);
+  const [hasArticles, setHasArticles] = useState(false); // New state to track if there are any articles for the selected year
 
-// Memoized function to handle records fetched from Airtable
-const handleRecordsFetched = useCallback((fetchedPosts) => {
-// Extract years from the fetched posts
-const uniqueYears = [...new Set(fetchedPosts.map(post => dayjs(post.fields.Published).year()))];
-const currentYear = dayjs().year();
+ // Memoized function to handle records fetched from Airtable
+  const handleRecordsFetched = useCallback((fetchedPosts) => {
+    // Extract years from the fetched posts
+    const uniqueYears = [...new Set(fetchedPosts.map(post => dayjs(post.fields.Published).year()))];
+    const currentYear = dayjs().year();
   
     // Generate a list of years up to the current year
     const yearOptions = [];
@@ -22,7 +23,11 @@ const currentYear = dayjs().year();
 
     console.log("Generated Year Options:", yearOptions);
     setYears(yearOptions);
-  }, []);
+
+    // Check if any posts exist for the selected year
+    const postsForSelectedYear = fetchedPosts.filter(post => dayjs(post.fields.Published).format('YYYY') === selectedYear);
+    setHasArticles(postsForSelectedYear.length > 0); // Update hasArticles based on filtered posts
+  }, [selectedYear]);
 
   const renderNewsItem = (post) => {
     const formattedDate = dayjs(post.fields.Published).format("D MMM, YYYY");
@@ -91,14 +96,16 @@ const currentYear = dayjs().year();
                 tableName="News"
                 view="Grid view"
                 renderItem={(post) => {
-                  // Filter by year within renderItem
                   if (dayjs(post.fields.Published).format('YYYY') !== selectedYear) {
                     return null; // Don't render if year doesn't match
                   }
                   return renderNewsItem(post); // Render if year matches
                 }}
-                onRecordsFetched={handleRecordsFetched} // Set years after posts are fetched
+                onRecordsFetched={handleRecordsFetched} // Set years after posts are fetched and determine if articles exist for the selected year
               />
+              {!hasArticles && (
+                <p>No article available for the current year.</p>
+              )}
             </div>
           </div>
         </div>
