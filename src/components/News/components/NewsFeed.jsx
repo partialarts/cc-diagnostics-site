@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Airtable from "../../common/Airtable/Airtable";
 import dayjs from "dayjs";
 import placeholder from "../../../assets/images/placeholder.png";
@@ -7,10 +7,16 @@ import { Link } from 'react-router-dom';
 const NewsFeed = () => {
   const [selectedYear, setSelectedYear] = useState(dayjs().year().toString());
   const [years, setYears] = useState([]);
-  const [posts, setPosts] = useState([]);
+
+    // Use a ref to track whether the data has already been fetched
+    const isFirstFetch = React.useRef(true);
 
 // Memoized function to handle records fetched from Airtable
 const handleRecordsFetched = useCallback((fetchedPosts) => {
+  if (!isFirstFetch.current) {
+    return; // Prevent the function from running multiple times
+  }
+  isFirstFetch.current = false; // Set to false after the first fetch
   console.log("Handling records fetched:", fetchedPosts);
   
 // Extract years from the fetched posts
@@ -25,7 +31,6 @@ const currentYear = dayjs().year();
 
     console.log("Generated Year Options:", yearOptions);
     setYears(yearOptions);
-    setPosts(fetchedPosts); // Store fetched posts in state
   }, []);
 
   const renderNewsItem = (post) => {
@@ -91,13 +96,6 @@ const currentYear = dayjs().year();
         <div className="col-span-2">
           <div className="mx-auto max-w-2xl lg:max-w-4xl">
             <div className="space-y-20 lg:space-y-20">
-            {posts.length === 0 ? (
-                <p>Loading news...</p>
-              ) : (
-                posts
-                  .filter(post => dayjs(post.fields.Published).format('YYYY') === selectedYear)
-                  .map(post => renderNewsItem(post))
-              )}
               <Airtable
                 tableName="News"
                 view="Grid view"

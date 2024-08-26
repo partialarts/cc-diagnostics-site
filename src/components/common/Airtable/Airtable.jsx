@@ -3,7 +3,6 @@ import airtableBase from "../../../utils/airtableapi";
 
 function Airtable({ tableName, view, renderItem, onRecordsFetched }) {
   const [records, setRecords] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -29,7 +28,6 @@ function Airtable({ tableName, view, renderItem, onRecordsFetched }) {
               onRecordsFetched(allRecords); // Pass all records at once to the callback
             }
           }
-          setIsLoading(false);
         }
       );
   }, [tableName, view, onRecordsFetched]);
