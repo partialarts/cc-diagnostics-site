@@ -1,12 +1,32 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useCallback } from "react";
 import Airtable from "../../common/Airtable/Airtable";
 import dayjs from "dayjs";
 import placeholder from "../../../assets/images/placeholder.png";
 import { Link } from 'react-router-dom';
 
-export default function NewsFeed() {
-  const [selectedYear, setSelectedYear] = useState("2024")
+const NewsFeed = () => {
+  const [selectedYear, setSelectedYear] = useState(dayjs().year().toString());
+  const [years, setYears] = useState([]);
+  const [posts, setPosts] = useState([]);
 
+// Memoized function to handle records fetched from Airtable
+const handleRecordsFetched = useCallback((fetchedPosts) => {
+  console.log("Handling records fetched:", fetchedPosts);
+  
+// Extract years from the fetched posts
+const uniqueYears = [...new Set(fetchedPosts.map(post => dayjs(post.fields.Published).year()))];
+const currentYear = dayjs().year();
+  
+    // Generate a list of years up to the current year
+    const yearOptions = [];
+    for (let year = currentYear; year >= Math.min(...uniqueYears); year--) {
+      yearOptions.push(year.toString());
+    }
+
+    console.log("Generated Year Options:", yearOptions);
+    setYears(yearOptions);
+    setPosts(fetchedPosts); // Store fetched posts in state
+  }, []);
 
   const renderNewsItem = (post) => {
     const formattedDate = dayjs(post.fields.Published).format("D MMM, YYYY");
@@ -31,7 +51,7 @@ export default function NewsFeed() {
         
         <div className="group relative max-w-xl">
           <h3 className="mt-0 text-lg font-semibold leading-6 text-ccDarkBlue group-hover:text-ccLightBlue text-left">
-          <Link to={`/article/${post.id}`} state={{ post }}> {/* Pass post data in state */}
+            <Link to={`/article/${post.id}`} state={{ post }}> {/* Pass post data in state */}
               <span className="absolute inset-0 pointer-events-none" />
               {post.fields.Title}
             </Link>
@@ -54,7 +74,7 @@ export default function NewsFeed() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Year filter section */}
         <div className="years lg:col-span-1 lg:sticky lg:top-0 text-left text-xl font-bold tracking-tight text-ccDarkBlue">
-        {["2024", "2023", "2022", "2021"].map((year) => (
+        {years.map((year) => (
             <h2
               key={year}
               className={`lg:p-4 p-8 cursor-pointer hover:text-ccLightBlue ${
@@ -64,28 +84,38 @@ export default function NewsFeed() {
             >
               {year}
             </h2>
-          ))}
-        </div>
+))}
+      </div>
 
         {/* News articles section */}
         <div className="col-span-2">
           <div className="mx-auto max-w-2xl lg:max-w-4xl">
             <div className="space-y-20 lg:space-y-20">
-                <Airtable
-                  tableName="News"
-                  view="Grid view"
-                  renderItem={(post) => {
-                    // Filter by year within renderItem
-                    if (!post.createdTime.startsWith(selectedYear)) {
-                      return null; // Don't render if year doesn't match
-                    }
-                    return renderNewsItem(post); // Render if year matches
-                  }}
-                />
+            {posts.length === 0 ? (
+                <p>Loading news...</p>
+              ) : (
+                posts
+                  .filter(post => dayjs(post.fields.Published).format('YYYY') === selectedYear)
+                  .map(post => renderNewsItem(post))
+              )}
+              <Airtable
+                tableName="News"
+                view="Grid view"
+                renderItem={(post) => {
+                  // Filter by year within renderItem
+                  if (dayjs(post.fields.Published).format('YYYY') !== selectedYear) {
+                    return null; // Don't render if year doesn't match
+                  }
+                  return renderNewsItem(post); // Render if year matches
+                }}
+                onRecordsFetched={handleRecordsFetched} // Set years after posts are fetched
+              />
             </div>
           </div>
         </div>
       </div>
     </div>
   );
-}
+};
+
+export default NewsFeed;
