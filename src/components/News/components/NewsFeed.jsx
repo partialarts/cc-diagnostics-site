@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useCallback } from "react";
 import Airtable from "../../common/Airtable/Airtable";
 import dayjs from "dayjs";
 import placeholder from "../../../assets/images/placeholder.png";
