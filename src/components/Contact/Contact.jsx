@@ -1,19 +1,59 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import teamPhoto from "../../assets/images/teamPhoto.jpg";
 import emailjs from "@emailjs/browser";
 import SEO from '../common/SEO';
+import ReCAPTCHA from "react-google-recaptcha";
 
 export default function ContactForm() {
 
   const form = useRef();
+  const [captchaValue, setCaptchaValue] = useState(null);
+
+  const handleCaptchaChange = (value) => {
+    setCaptchaValue(value);
+  };
+
+  // const errorMessage = () => {
+  //   return (
+  //     <p className="mt-2 text-lg leading-8 text-gray-600">
+  //       Please complete Captcha
+  //     </p>
+  //   );
+  // };
+
+  const [isEmpty, setEmpty] = useState(false);
+
+  const handleClick = () => {
+    if (!captchaValue) {
+      setEmpty(true);
+    // <p className="block px-3.5 py-2 text-sm font-medium leading-6 text-gray-900">
+    //   Please complete Captcha
+    // </p>
+    } else {
+      setEmpty(false);
+    // <p className="block px-3.5 py-2 text-sm font-medium leading-6 text-gray-900">
+    //   All done!
+    // </p>
+    }
+  }
 
   const sendEmail = (e) => {
     e.preventDefault();
 
+    if (!captchaValue) {
+      console.log("Please complete captcha");
+    }
+
     emailjs
-      .sendForm("service_oclawmi", "template_atjnqk2", form.current, {
-        publicKey: "ZlfTvcxMVaL7ABXyu",
-      })
+      .sendForm(
+        "service_oclawmi",
+        "template_atjnqk2",
+        form.current,
+        "ZlfTvcxMVaL7ABXyu",
+        {
+          "g-recaptcha-response": captchaValue,
+        }
+      )
       .then(
         () => {
           console.log("SUCCESS!");
@@ -25,7 +65,7 @@ export default function ContactForm() {
   };
 
   return (
-    <>
+   <>
        {/* SEO Component */}
        <SEO 
        title="Contact Us - CC Diagnostics" 
@@ -34,9 +74,8 @@ export default function ContactForm() {
        url="https://www.cc-diagnostics.netlify.app/contact"
        image="https://www.cc-diagnostics.netlify.app/assets/logo-COHLTM4X.png"  // Using company logo for meta image
      />
-     
-    <div className="relative bg-white ">
 
+    <div className="relative bg-white">
       <div className="lg:absolute lg:inset-0 lg:left-1/2">
         <img
           alt="team photo"
@@ -173,16 +212,20 @@ export default function ContactForm() {
                   </div>
                 </div>
               </div>
-              {/* <form action="?" method="POST">
-                <div className="g-recaptcha" data-sitekey="your_site_key"></div>
-                <br />
-                <input type="submit" value="Submit" />
-              </form> */}
+              <ReCAPTCHA
+                sitekey={"6Ldkdy8qAAAAAA9_u4lncb7mBImiduZxr5s7jsdB"}
+                onChange={handleCaptchaChange} className="my-6"
+              />
+              {isEmpty && (
+                <p className="block px-3.5 py-2 text-sm font-medium leading-6 text-red-600">
+                  *Please complete Captcha
+                </p>
+              )}
               <div className="mt-10 flex justify-end border-t border-gray-900/10 pt-8">
                 <button
                   type="submit"
                   className="rounded-md bg-ccDarkBlue px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-ccDarkBlue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ccDarkBlue"
-                >
+                  onClick={handleClick}>
                   Send message
                 </button>
               </div>
@@ -191,6 +234,6 @@ export default function ContactForm() {
         </div>
       </div>
     </div>
-    </>
-  );
+  </>
+ );
 }
