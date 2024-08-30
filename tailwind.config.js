@@ -1,4 +1,9 @@
 /** @type {import('tailwindcss').Config} */
+import typography from '@tailwindcss/typography';
+import forms from '@tailwindcss/forms';
+import aspectRatio from '@tailwindcss/aspect-ratio';
+import daisyui from 'daisyui';
+
 export default {
   content: [
     "./index.html",
@@ -15,9 +20,9 @@ export default {
     },
   },
   plugins: [
-    require('@tailwindcss/typography'),
-    require('@tailwindcss/forms'),
-    require('@tailwindcss/aspect-ratio'),
-    require('daisyui'),
+    typography,
+    forms,
+    aspectRatio,
+    daisyui,
   ],
 };
