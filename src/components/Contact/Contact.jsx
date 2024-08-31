@@ -1,8 +1,7 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react"
 import teamPhoto from "../../assets/images/teamPhoto.jpg";
 import emailjs from "@emailjs/browser";
 import SEO from "../common/SEO";
-import ReCAPTCHA from "react-google-recaptcha";
 import PrivacyPolicy from "../../assets/pdf/PrivacyPolicy.pdf";
 
 export default function ContactForm() {
@@ -12,13 +11,17 @@ export default function ContactForm() {
   const serviceID = import.meta.env.VITE_EMAIL_JS_SERVICE_ID;
   const templateID = import.meta.env.VITE_EMAIL_JS_TEMPLATE_ID;
   const userID = import.meta.env.VITE_EMAIL_JS_USER_ID;
+
   const recaptchaKey = import.meta.env.VITE_RECAPTCHA_KEY;
+
+  const [isEmpty, setEmpty] = useState(false);
+  const [recaptchaLoaded, setRecaptchaLoaded] = useState(false);
+  const recaptchaRef = useRef(null);
 
   const handleCaptchaChange = (value) => {
     setCaptchaValue(value);
+    setEmpty(false); 
   };
-
-  const [isEmpty, setEmpty] = useState(false);
 
   const handleClick = () => {
     if (!captchaValue) {
@@ -53,6 +56,26 @@ export default function ContactForm() {
         }
       );
   };
+
+  useEffect(() => {
+    if (window.grecaptcha) {
+      setRecaptchaLoaded(true);
+    } else {
+      console.error("reCAPTCHA script not found. Please check your index.html.");
+    }
+  }, []);
+
+  // New useEffect to render reCAPTCHA only when recaptchaRef.current is available
+  useEffect(() => {
+    if (recaptchaLoaded && recaptchaRef.current) {
+      window.grecaptcha.ready(() => {
+        window.grecaptcha.render(recaptchaRef.current, {
+          sitekey: recaptchaKey,
+          callback: handleCaptchaChange,
+        });
+      });
+    }
+  }, [recaptchaLoaded]);
 
   return (
     <>
@@ -200,27 +223,26 @@ export default function ContactForm() {
                     </div>
                   </div>
                 </div>
-                <ReCAPTCHA
-                  sitekey={recaptchaKey}
-                  onChange={handleCaptchaChange}
-                  className="my-6"
-                />
-                {isEmpty && (
-                  <p className="block px-3.5 py-2 text-sm font-medium leading-6 text-red-600">
-                    *Please complete Captcha
-                  </p>
-                )}
-                <div class="flex items-center mb-4">
+                {recaptchaLoaded && (
+                <div className="my-6" ref={recaptchaRef}></div> 
+              )}
+
+              {isEmpty && (
+                <p className="block px-3.5 py-2 text-sm font-medium leading-6 text-red-600">
+                  *Please complete Captcha
+                </p>
+              )}
+                <div className="flex items-center mb-4">
                   <input
                     id="default-checkbox"
                     type="checkbox"
                     value=""
                     required
-                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:border-gray-600"
+                    className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:border-gray-600"
                   />
                   <label
-                    for="default-checkbox"
-                    class="ms-2 text-sm font-medium text-gray-900 dark:text-red-600 underline"
+                    htmlFor="default-checkbox"
+                    className="ms-2 text-sm font-medium text-gray-900 dark:text-red-600 underline"
                   >
                     I agree to the Privacy Policy
                   </label>
