@@ -66,7 +66,6 @@ export default function ContactForm() {
       window.grecaptcha.ready(() => {
         window.grecaptcha.render(recaptchaRef.current, {
           sitekey: recaptchaKey,
-          size: 'invisible', 
           callback: handleCaptchaChange,
         });
       });
