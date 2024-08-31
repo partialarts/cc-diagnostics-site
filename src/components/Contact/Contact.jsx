@@ -9,6 +9,10 @@ import { BeakerIcon } from "@heroicons/react/24/solid";
 export default function ContactForm() {
   const form = useRef();
   const [captchaValue, setCaptchaValue] = useState(null);
+  const serviceID = import.meta.env.VITE_EMAIL_JS_SERVICE_ID;
+  const templateID = import.meta.env.VITE_EMAIL_JS_TEMPLATE_ID;
+  const userID = import.meta.env.VITE_EMAIL_JS_USER_ID;
+  const recaptchaKey = import.meta.env.VITE_RECAPTCHA_KEY;
 
   const handleCaptchaChange = (value) => {
     setCaptchaValue(value);
@@ -47,10 +51,10 @@ export default function ContactForm() {
 
     emailjs
       .sendForm(
-        "service_oclawmi",
-        "template_atjnqk2",
+        serviceID,
+        templateID,
         form.current,
-        "ZlfTvcxMVaL7ABXyu",
+        userID,
         {
           "g-recaptcha-response": captchaValue,
         }
@@ -218,7 +222,7 @@ export default function ContactForm() {
                   </div>
                 </div>
                 <ReCAPTCHA
-                  sitekey={"6Ldkdy8qAAAAAA9_u4lncb7mBImiduZxr5s7jsdB"}
+                  sitekey={recaptchaKey}
                   onChange={handleCaptchaChange}
                   className="my-6"
                 />
