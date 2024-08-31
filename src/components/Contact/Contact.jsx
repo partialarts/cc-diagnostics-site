@@ -1,83 +1,90 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import teamPhoto from "../../assets/images/teamPhoto.jpg";
 import emailjs from "@emailjs/browser";
 import SEO from "../common/SEO";
-import ReCAPTCHA from "react-google-recaptcha";
 import PrivacyPolicy from "../../assets/pdf/PrivacyPolicy.pdf";
-import { BeakerIcon } from "@heroicons/react/24/solid";
 
 export default function ContactForm() {
   const form = useRef();
   const [captchaValue, setCaptchaValue] = useState(null);
   const serviceID = import.meta.env.VITE_EMAIL_JS_SERVICE_ID;
   const templateID = import.meta.env.VITE_EMAIL_JS_TEMPLATE_ID;
-  const userID = import.meta.env.VITE_EMAIL_JS_USER_ID;
+  const userID = import.meta.env.VITE_EMAIL_JS_USER_ID;   
+
   const recaptchaKey = import.meta.env.VITE_RECAPTCHA_KEY;
+
+  const [isEmpty, setEmpty] = useState(false);
+  const [recaptchaLoaded, setRecaptchaLoaded] = useState(false);
+  const recaptchaRef = useRef(null);
+  const [submitStatus, setSubmitStatus] = useState(null);
 
   const handleCaptchaChange = (value) => {
     setCaptchaValue(value);
+    setEmpty(false); 
   };
-
-  // const errorMessage = () => {
-  //   return (
-  //     <p className="mt-2 text-lg leading-8 text-gray-600">
-  //       Please complete Captcha
-  //     </p>
-  //   );
-  // };
-
-  const [isEmpty, setEmpty] = useState(false);
 
   const handleClick = () => {
     if (!captchaValue) {
-      setEmpty(true);
-      // <p className="block px-3.5 py-2 text-sm font-medium leading-6 text-gray-900">
-      //   Please complete Captcha
-      // </p>
+      setEmpty(true); 
     } else {
       setEmpty(false);
-      // <p className="block px-3.5 py-2 text-sm font-medium leading-6 text-gray-900">
-      //   All done!
-      // </p>
     }
   };
 
   const sendEmail = (e) => {
-    e.preventDefault();
+    e.preventDefault(); 
+
+    handleClick(); 
 
     if (!captchaValue) {
-      console.log("Please complete captcha");
+      return; 
     }
 
+    setSubmitStatus('submitting');
+
     emailjs
-      .sendForm(
-        serviceID,
-        templateID,
-        form.current,
-        userID,
-        {
-          "g-recaptcha-response": captchaValue,
-        }
-      )
+      .sendForm(serviceID, templateID, form.current, userID, {
+        "g-recaptcha-response": captchaValue,
+      })
       .then(
         () => {
           console.log("SUCCESS!");
+          form.current.reset();
+          setSubmitStatus('success');
         },
         (error) => {
-          console.log("FAILED...", error.text);
+          console.error("FAILED...", error); 
+          setSubmitStatus('error');
         }
       );
   };
 
+  useEffect(() => {
+    // Check if grecaptcha is already available (script loaded in index.html)
+    if (window.grecaptcha) {
+      setRecaptchaLoaded(true);
+      window.grecaptcha.ready(() => {
+        window.grecaptcha.render(recaptchaRef.current, {
+          sitekey: recaptchaKey,
+          size: 'invisible', 
+          callback: handleCaptchaChange,
+        });
+      });
+    } else {
+      // If not available, handle the error 
+      console.error("reCAPTCHA script not found. Please check your index.html.");
+      // You might want to display an error message to the user here
+    }
+  }, []); 
+
   return (
     <>
-      {/* SEO Component */}
       <SEO
         title="Contact Us - CC Diagnostics"
         description="Get in touch with CC Diagnostics for any inquiries, support, or information. Fill out our contact form to reach our team and we will get back to you promptly."
         keywords="contact, CC Diagnostics, customer support, inquiries, contact form"
         url="https://www.cc-diagnostics.netlify.app/contact"
-        image="https://www.cc-diagnostics.netlify.app/assets/logo-COHLTM4X.png" // Using company logo for meta image
+        image="https://www.cc-diagnostics.netlify.app/assets/logo-COHLTM4X.png"
       />
 
       <div className="relative bg-white">
@@ -91,12 +98,11 @@ export default function ContactForm() {
         <div className="pb-24 pt-16 sm:pb-32 sm:pt-24 lg:mx-auto lg:grid lg:max-w-7xl lg:grid-cols-2 lg:pt-32">
           <div className="px-6 lg:px-8">
             <div className="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
-              <h2 className="text-3xl font-bold tracking-tight text-ccDarkBlue py-6">
+              <h2 className="text-3xl font-bold tracking-tight   
+ text-ccDarkBlue py-6">
                 Get in Touch
               </h2>
-              {/* <p className="mt-2 text-lg leading-8 text-gray-600">
-              Have a question or need assistance? Fill out the form below.
-            </p> */}
+
               <form ref={form} onSubmit={sendEmail}>
                 <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
                   <div>
@@ -221,34 +227,37 @@ export default function ContactForm() {
                     </div>
                   </div>
                 </div>
-                <ReCAPTCHA
-                  sitekey={recaptchaKey}
-                  onChange={handleCaptchaChange}
-                  className="my-6"
-                />
+                {recaptchaLoaded && (
+                  <div ref={recaptchaRef}></div> 
+                )}
+
                 {isEmpty && (
                   <p className="block px-3.5 py-2 text-sm font-medium leading-6 text-red-600">
                     *Please complete Captcha
                   </p>
                 )}
-                <div class="flex items-center mb-4">
+
+                <div className="flex items-center mb-4">
                   <input
                     id="default-checkbox"
                     type="checkbox"
                     value=""
                     required
-                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:border-gray-600"
+                    className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600   
+ dark:ring-offset-gray-800 focus:ring-2 dark:border-gray-600"
                   />
-                    <label
-                      for="default-checkbox"
-                      class="ms-2 text-sm font-medium text-gray-900 dark:text-red-600 underline"
-                    >
-                      I agree to the Privacy Policy
-                    </label>
+                  <label
+                    htmlFor="default-checkbox"
+                    className="ms-2   
+ text-sm font-medium text-gray-900 dark:text-red-600 underline"
+                  >
+                    I agree to the Privacy Policy
+                  </label>
                   <a
                     href={PrivacyPolicy}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="View Privacy Policy"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -266,11 +275,20 @@ export default function ContactForm() {
                     </svg>
                   </a>
                 </div>
+                {/* Feedback Messages */}
+                {submitStatus === 'submitting' && (
+                  <p className="block font-semibold text-gray-600">Submitting...</p>
+                )}
+                {submitStatus === 'success' && (
+                  <p className="block font-semibold text-ccDarkBlue">Your message has been sent successfully!</p>
+                )}
+                {submitStatus === 'error' && (
+                  <p className="block font-semibold text-red-600">There was an error sending your message. Please try again later.</p>
+                )}
                 <div className="mt-10 flex justify-end border-t border-gray-900/10 pt-8">
                   <button
                     type="submit"
                     className="rounded-md bg-ccDarkBlue px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-ccLightBlue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ccDarkBlue"
-                    onClick={handleClick}
                   >
                     Send message
                   </button>
