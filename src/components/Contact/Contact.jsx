@@ -39,6 +39,9 @@ export default function ContactForm() {
   };
 
   const sendEmail = (e) => {
+    const serviceID = import.meta.env.VITE_EMAIL_JS_SERVICE_ID;
+    const templateID = import.meta.env.VITE_EMAIL_JS_TEMPLATE_ID;
+    const userID = import.meta.env.VITE_EMAIL_JS_USER_ID;
     e.preventDefault();
 
     if (!captchaValue) {
@@ -47,10 +50,10 @@ export default function ContactForm() {
 
     emailjs
       .sendForm(
-        "service_oclawmi",
-        "template_atjnqk2",
+        serviceID,
+        templateID,
         form.current,
-        "ZlfTvcxMVaL7ABXyu",
+        userID,
         {
           "g-recaptcha-response": captchaValue,
         }
