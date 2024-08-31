@@ -7,7 +7,7 @@ const ImageGallery = ({ images }) => {
     setSelectedImageIndex(index);
   };
   return (
-    <figure className="mt-10 grid gap-4">
+    <figure className="mt-5 grid gap-4">
       {/* Main Image (Dynamically Selected) */}
       {images.length > 0 && (
         <div>
