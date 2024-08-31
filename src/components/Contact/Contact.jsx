@@ -4,11 +4,11 @@ import emailjs from "@emailjs/browser";
 import SEO from "../common/SEO";
 import ReCAPTCHA from "react-google-recaptcha";
 import PrivacyPolicy from "../../assets/pdf/PrivacyPolicy.pdf";
-import { BeakerIcon } from "@heroicons/react/24/solid";
 
 export default function ContactForm() {
   const form = useRef();
   const [captchaValue, setCaptchaValue] = useState(null);
+  const [Message, setMessage] = useState("");
   const serviceID = import.meta.env.VITE_EMAIL_JS_SERVICE_ID;
   const templateID = import.meta.env.VITE_EMAIL_JS_TEMPLATE_ID;
   const userID = import.meta.env.VITE_EMAIL_JS_USER_ID;
@@ -18,53 +18,38 @@ export default function ContactForm() {
     setCaptchaValue(value);
   };
 
-  // const errorMessage = () => {
-  //   return (
-  //     <p className="mt-2 text-lg leading-8 text-gray-600">
-  //       Please complete Captcha
-  //     </p>
-  //   );
-  // };
-
   const [isEmpty, setEmpty] = useState(false);
 
   const handleClick = () => {
     if (!captchaValue) {
       setEmpty(true);
-      // <p className="block px-3.5 py-2 text-sm font-medium leading-6 text-gray-900">
-      //   Please complete Captcha
-      // </p>
     } else {
       setEmpty(false);
-      // <p className="block px-3.5 py-2 text-sm font-medium leading-6 text-gray-900">
-      //   All done!
-      // </p>
     }
   };
 
   const sendEmail = (e) => {
     e.preventDefault();
 
-    if (!captchaValue) {
-      console.log("Please complete captcha");
-    }
-
     emailjs
-      .sendForm(
-        serviceID,
-        templateID,
-        form.current,
-        userID,
-        {
-          "g-recaptcha-response": captchaValue,
-        }
-      )
+      .sendForm(serviceID, templateID, form.current, userID, {
+        "g-recaptcha-response": captchaValue,
+      })
       .then(
         () => {
           console.log("SUCCESS!");
+          form.current.reset();
+          setCaptchaValue(null);
+          setEmpty(false);
+          setMessage(
+            "Thank you for contacting us. We will be in touch with you soon."
+          );
         },
         (error) => {
           console.log("FAILED...", error.text);
+          setMessage(
+            "There seems to be an error, please try again later or alternatively you contact us at info@cc-diagnostics.com."
+          );
         }
       );
   };
@@ -94,9 +79,6 @@ export default function ContactForm() {
               <h2 className="text-3xl font-bold tracking-tight text-ccDarkBlue py-6">
                 Get in Touch
               </h2>
-              {/* <p className="mt-2 text-lg leading-8 text-gray-600">
-              Have a question or need assistance? Fill out the form below.
-            </p> */}
               <form ref={form} onSubmit={sendEmail}>
                 <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
                   <div>
@@ -197,9 +179,6 @@ export default function ContactForm() {
                       required
                       className="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-ccDarkBlue ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-ccLightBlue sm:text-sm sm:leading-6"
                     >
-                      <option>General Enquiry</option>
-                      <option>Purchase</option>
-                      <option>Documentation</option>
                       <option>Product Support</option>
                       <option>Purchasing Support</option>
                       <option>Complaint</option>
@@ -239,12 +218,12 @@ export default function ContactForm() {
                     required
                     class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:border-gray-600"
                   />
-                    <label
-                      for="default-checkbox"
-                      class="ms-2 text-sm font-medium text-gray-900 dark:text-red-600 underline"
-                    >
-                      I agree to the Privacy Policy
-                    </label>
+                  <label
+                    for="default-checkbox"
+                    class="ms-2 text-sm font-medium text-gray-900 dark:text-red-600 underline"
+                  >
+                    I agree to the Privacy Policy
+                  </label>
                   <a
                     href={PrivacyPolicy}
                     target="_blank"
@@ -265,7 +244,13 @@ export default function ContactForm() {
                       />
                     </svg>
                   </a>
+                  <br/>
                 </div>
+                  {Message && (
+                    <p className="block py-2 text-sm font-medium leading-6 text-green-600">
+                      {Message}
+                    </p>
+                  )}
                 <div className="mt-10 flex justify-end border-t border-gray-900/10 pt-8">
                   <button
                     type="submit"
