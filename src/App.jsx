@@ -1,7 +1,6 @@
 // App.jsx
 import React from 'react';
 import { Route, Routes } from 'react-router-dom'; // Import only what's needed
-import { HelmetProvider } from 'react-helmet-async';
 import Nav from './components/common/Nav/Nav';
 import Home from './components/Home/Home';
 import Footer from './components/common/Footer/Footer';
@@ -10,7 +9,7 @@ import About from './components/About/About';
 import News from './components/News/News';
 import Contact from './components/Contact/Contact';
 import IndividualArticle from './components/News/components/IndividualArticle/IndividualArticle';
-
+import { HelmetProvider } from 'react-helmet-async';
 function App() {
   return (
     <HelmetProvider>
