@@ -4,10 +4,13 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "node server.js",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "build:client": "vite build --outDir dist/client",
+    "build:server": "vite build --outDir dist/server --ssr src/entry-server.jsx",
+    "pre-render": "node pre-render.js",
+    "build": "npm run build:client && npm run build:server && npm run pre-render"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
@@ -17,6 +20,7 @@
     "@tailwindcss/forms": "^0.5.7",
     "airtable": "^0.12.2",
     "dayjs": "^1.11.12",
+    "express": "^4.19.2",
     "papaparse": "^5.4.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
