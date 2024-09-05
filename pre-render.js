@@ -16,7 +16,7 @@ async function preRender() {
 
   for (const route of routesToPrerender) {
     const url = route;
-    const { render } = await vite.ssrLoadModule('/src/entry-server.js');
+    const { render } = await vite.ssrLoadModule('/src/entry-server.jsx');
     const appHtml = await render(url);
 
     const html = template.replace(`<!--ssr-outlet-->`, appHtml);
