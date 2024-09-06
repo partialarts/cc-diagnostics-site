@@ -1,10 +1,10 @@
 import React, { useRef, useState } from "react";
 import teamPhoto from "../../assets/images/teamPhoto.jpg";
 import emailjs from "@emailjs/browser";
-import SEO from "../common/SEO";
+import SEO from "../common/SEO"; // Ensure correct import of the SEO component
 import ReCAPTCHA from "react-google-recaptcha";
 import PrivacyPolicy from "../../assets/pdf/PrivacyPolicy.pdf";
-import { BeakerIcon } from "@heroicons/react/24/solid";
+
 
 export default function ContactForm() {
   const form = useRef();
