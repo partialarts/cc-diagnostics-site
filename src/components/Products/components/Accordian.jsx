@@ -52,7 +52,7 @@ export default function Accordion() {
           </div>
           <div className="p-8">
             <Airtable 
-              tableName="TechnicalSpecifications" // Corrected the spelling here
+              tableName="Technical Specifications" // Corrected the spelling here
               view="Grid view" 
               renderItem={container} 
             />

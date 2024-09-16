@@ -111,7 +111,7 @@ export default function Tabs() {
 // Fetch Airtable records function to be defined in Airtable component
 const fetchAirtableRecords = async () => {
   return new Promise((resolve, reject) => {
-    airtableBase('TechnicalSpecifications')
+    airtableBase('Technical Specifications')
       .select({ view: 'Grid view' })
       .eachPage((records, fetchNextPage) => {
         const formattedRecords = records.map((record) => record._rawJson);
